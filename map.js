@@ -115,7 +115,7 @@ $(document).ready(function () {
             } else if (map.getZoom() > 16 || map.getZoom() < 7) {
                 map.removeLayer(lijnenLaag);
             }
-            if (map.getZoom() <= 22 && map.getZoom() >= 16) {
+            if (map.getZoom() <= 24 && map.getZoom() >= 16) {
                 map.addLayer(layer_WineryHerbsplattegrond);
             } else if (map.getZoom() > 19 || map.getZoom() < 16) {
                 map.removeLayer(layer_WineryHerbsplattegrond);
