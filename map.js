@@ -14,7 +14,8 @@ $(document).ready(function () {
         minZoom: 8,
         maxZoom: 24,
         zoomControl: false,
-        zoomSnap: 0.25
+        zoomDelta: 0.25,
+        zoomSnap: 0
     };
 
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
@@ -203,7 +204,6 @@ $(document).ready(function () {
     
     var zoom_bar = new L.Control.ZoomBar({
         position: 'bottomright',
-        zoomSnap: 0.25
     }).addTo(map);
 	
 	var lc = L.control.locate({
