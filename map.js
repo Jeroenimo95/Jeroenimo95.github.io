@@ -14,6 +14,7 @@ $(document).ready(function () {
         minZoom: 8,
         maxZoom: 24,
         zoomControl: false,
+        zoomSnap: 0.25
     };
 
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
