@@ -9,7 +9,19 @@ $(document).ready(function () {
         "weight": 5,
         "opacity": 0.6
     };
-
+    
+    var ProvStyle = {
+        "opacity": 1,
+        "color": 'rgba(56,128,54,1.0)',
+        "dashArray": '',
+        "lineCap": 'butt',
+        "lineJoin": 'miter',
+        "weight": 2.0,
+        "fill": true,
+        "fillOpacity": 0.4,
+        "fillColor": 'rgba(178,223,138,1.0)',
+        };
+    
     var mapOptions = {
         minZoom: 8,
         maxZoom: 24,
@@ -125,6 +137,11 @@ $(document).ready(function () {
     });
     map.addLayer(lijnenLaag);
 
+    var provincieLaag = new L.GeoJSON(json_provincies_0, {
+        style: ProvStyle,
+    });
+    map.addLayer(provincieLaag);
+
     // Draw control
     var featureGroup = new L.FeatureGroup().addTo(map);
     //map.addLayer(drawnItems);
@@ -231,6 +248,7 @@ $(document).ready(function () {
         'Verhalen': verhalenLaag,
         'Lijnen': lijnenLaag,
         'Plattegrond W&H': layer_WineryHerbsplattegrond,
+        'Provincies': provincieLaag
     };
 
     var lagenSwitcher = new L.Control.Layers(achtergronden, overlayLagen, {
