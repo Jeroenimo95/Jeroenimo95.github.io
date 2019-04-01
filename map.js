@@ -14,8 +14,6 @@ $(document).ready(function () {
         minZoom: 8,
         maxZoom: 24,
         zoomControl: false,
-        zoomDelta: 0.25,
-        zoomSnap: 0
     };
 
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
@@ -111,7 +109,18 @@ $(document).ready(function () {
             }
         })
         .addTo(map);
-
+        map.on("zoomend", function(e) {
+            if (map.getZoom() <= 18 && map.getZoom() >= 7) {
+                map.addLayer(lijnenLaag);
+            } else if (map.getZoom() > 16 || map.getZoom() < 7) {
+                map.removeLayer(lijnenLaag);
+            }
+            if (map.getZoom() <= 22 && map.getZoom() >= 16) {
+                map.addLayer(layer_WineryHerbsplattegrond);
+            } else if (map.getZoom() > 19 || map.getZoom() < 16) {
+                map.removeLayer(layer_WineryHerbsplattegrond);
+            }
+        });
     var lijnenLaag = new L.GeoJSON(json_Lijnen, {
        style: LijnStyle,
     });
