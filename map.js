@@ -202,7 +202,8 @@ $(document).ready(function () {
     });
     
     var zoom_bar = new L.Control.ZoomBar({
-        position: 'bottomright'
+        position: 'bottomright',
+        zoomSnap: 0.25
     }).addTo(map);
 	
 	var lc = L.control.locate({
