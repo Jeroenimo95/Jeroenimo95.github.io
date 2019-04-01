@@ -9,7 +9,7 @@ $(document).ready(function () {
         "weight": 5,
         "opacity": 0.6
     };
-    
+
     var ProvStyle = {
         "opacity": 1,
         "color": 'rgba(56,128,54,1.0)',
@@ -20,8 +20,8 @@ $(document).ready(function () {
         "fill": true,
         "fillOpacity": 0.4,
         "fillColor": 'rgba(178,223,138,1.0)',
-        };
-    
+    };
+
     var mapOptions = {
         minZoom: 8,
         maxZoom: 24,
@@ -48,10 +48,10 @@ $(document).ready(function () {
         jsonpParam: 'json_callback',
         propertyName: 'display_name',
         propertyLoc: ['lat', 'lon'],
-		marker: false,
+        marker: false,
         autoCollapse: true,
         autoType: false,
-		zoom: 14,
+        zoom: 14,
         minLength: 2
     }));
 
@@ -99,7 +99,7 @@ $(document).ready(function () {
         ];
     var layer_WineryHerbsplattegrond = new L.imageOverlay(img_WineryHerbsplattegrond, img_bounds_WineryHerbsplattegrond);
     bounds_group.addLayer(layer_WineryHerbsplattegrond);
-    
+
     var verhalenLaag = new L.GeoJSON(json_verhalen, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
@@ -120,20 +120,20 @@ $(document).ready(function () {
             }
         })
         .addTo(map);
-        map.on("zoomend", function(e) {
-            if (map.getZoom() <= 18 && map.getZoom() >= 7) {
-                map.addLayer(lijnenLaag);
-            } else if (map.getZoom() > 16 || map.getZoom() < 7) {
-                map.removeLayer(lijnenLaag);
-            }
-            if (map.getZoom() <= 24 && map.getZoom() >= 16) {
-                map.addLayer(layer_WineryHerbsplattegrond);
-            } else if (map.getZoom() > 19 || map.getZoom() < 16) {
-                map.removeLayer(layer_WineryHerbsplattegrond);
-            }
-        });
+    map.on("zoomend", function (e) {
+        if (map.getZoom() <= 18 && map.getZoom() >= 7) {
+            map.addLayer(lijnenLaag);
+        } else if (map.getZoom() > 16 || map.getZoom() < 7) {
+            map.removeLayer(lijnenLaag);
+        }
+        if (map.getZoom() <= 24 && map.getZoom() >= 16) {
+            map.addLayer(layer_WineryHerbsplattegrond);
+        } else if (map.getZoom() > 19 || map.getZoom() < 16) {
+            map.removeLayer(layer_WineryHerbsplattegrond);
+        }
+    });
     var lijnenLaag = new L.GeoJSON(json_Lijnen, {
-       style: LijnStyle,
+        style: LijnStyle,
     });
     map.addLayer(lijnenLaag);
 
@@ -151,14 +151,14 @@ $(document).ready(function () {
         draw: {
             polygon: false,
             polyline: false,
-            circle: false, 
+            circle: false,
             rectangle: false,
             marker: {
                 icon: nieuwIcon
             },
         },
         edit: {
-			featureGroup: featureGroup,
+            featureGroup: featureGroup,
         }
     });
     map.addControl(drawControl);
@@ -226,19 +226,19 @@ $(document).ready(function () {
 
         });
     });
-    
+
     var zoom_bar = new L.Control.ZoomBar({
         position: 'bottomright',
     }).addTo(map);
-	
-	var lc = L.control.locate({
+
+    var lc = L.control.locate({
         position: 'bottomright',
         icon: 'fa fa-dot-circle-o',
         strings: {
             title: "Laat mijn huidige locatie zien!"
         }
     }).addTo(map);
-    
+
     //Layer control
     var achtergronden = {
         'Zwart Wit': osm,
@@ -248,7 +248,6 @@ $(document).ready(function () {
         'Verhalen': verhalenLaag,
         'Lijnen': lijnenLaag,
         'Plattegrond W&H': layer_WineryHerbsplattegrond,
-        'Provincies': provincieLaag
     };
 
     var lagenSwitcher = new L.Control.Layers(achtergronden, overlayLagen, {
@@ -256,5 +255,6 @@ $(document).ready(function () {
 
     });
     map.addControl(lagenSwitcher);
+
 
 });
