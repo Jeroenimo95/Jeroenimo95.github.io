@@ -87,8 +87,7 @@ $(document).ready(function () {
         ];
     var layer_WineryHerbsplattegrond = new L.imageOverlay(img_WineryHerbsplattegrond, img_bounds_WineryHerbsplattegrond);
     bounds_group.addLayer(layer_WineryHerbsplattegrond);
-    map.addLayer(layer_WineryHerbsplattegrond);
-
+    
     var verhalenLaag = new L.GeoJSON(json_verhalen, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
