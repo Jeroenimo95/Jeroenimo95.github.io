@@ -61,6 +61,10 @@ ul li, ol li {
   list-style: none;
 }
 
+.Title {
+  color: #00b4d9 !important;
+}
+
 .hero-heading {
   font-size: 48px;
   font-weight: 700;
