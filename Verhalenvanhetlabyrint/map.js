@@ -23,7 +23,7 @@ $(document).ready(function () {
     };
 
     var mapOptions = {
-        minZoom: 8,
+        minZoom: 11,
         maxZoom: 24,
         zoomControl: false,
     };
