@@ -63,6 +63,9 @@ ul li, ol li {
 
 .Title {
   color: #0f8f70 !important;
+  font-size: 28px;
+  font-weight: 700;
+  font-family: "Source Sans Pro", sans-serif;
 }
 
 .hero-heading {
