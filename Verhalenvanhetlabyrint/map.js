@@ -31,7 +31,7 @@ $(document).ready(function () {
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
 
     //Controls
-    var sidebar = L.control.sidebar({
+    /*var sidebar = L.control.sidebar({
             container: 'sidebar'
         })
         .addTo(map)
@@ -39,7 +39,7 @@ $(document).ready(function () {
 
     L.control.scale({
         position: 'bottomright'
-    }).addTo(map);
+    }).addTo(map);*/
 
     map.addControl(new L.Control.Search({
         url: 'https://nominatim.openstreetmap.org/search?format=json&q={s}',
@@ -68,9 +68,14 @@ $(document).ready(function () {
     var straten = new L.TileLayer(stratenUrl, {
         attribution: stratenAttrib
     });
-    map.addLayer(osm);
-
-    //Icons
+    
+	var minis=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      	maxZoom: 18,
+      	attribution: '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'});
+	
+	map.addLayer(osm);
+	
+	//Icons
     var oorlogIcon = new L.Icon({
         iconUrl: 'img/oorlog.svg',
         iconSize: [25, 25],
@@ -145,9 +150,11 @@ $(document).ready(function () {
     // Draw control
     var featureGroup = new L.FeatureGroup().addTo(map);
     //map.addLayer(drawnItems);
+	
+	var miniMap = new L.Control.MiniMap(minis, { toggleDisplay: true, width:120, height:120, zoomLevelOffset:-4.5 }).addTo(map);
 
     var drawControl = new L.Control.Draw({
-        position: 'bottomright',
+        position: 'topright',
         draw: {
             polygon: false,
             polyline: false,
@@ -228,18 +235,18 @@ $(document).ready(function () {
     });
 
     var zoom_bar = new L.Control.ZoomBar({
-        position: 'bottomright',
+        position: 'topright',
     }).addTo(map);
 
     var lc = L.control.locate({
-        position: 'bottomright',
+        position: 'topright',
         icon: 'fa fa-dot-circle-o',
         strings: {
             title: "Laat mijn huidige locatie zien!"
         }
     }).addTo(map);
 
-    //Layer control
+    /*Layer control
     var achtergronden = {
         'Zwart Wit': osm,
         'Straten': straten
@@ -254,7 +261,30 @@ $(document).ready(function () {
         position: 'topright',
 
     });
-    map.addControl(lagenSwitcher);
+    map.addControl(lagenSwitcher);*/
+	
+	var baseMaps = {
+    'Zwart Wit': osm,
+        'Straten': straten
+    };
 
-
+    var groupedOverlays = {                                                              
+    "<b style=color:rgb(220,31,37);>Lagen</b> <br>": {
+		"Verhalen <img src='https://image.flaticon.com/icons/png/512/236/236981.png' height=25  style= 'margin-left: 17px'> ": verhalenLaag,
+		"Lijnen     <img src='http://krishnahospitalhaldwani.com/wp-content/uploads/2016/06/hostel-Icon.png' height=25 style= 'margin-left: 32px'> ":   lijnenLaag,
+		}	  
+	};
+	
+	
+	var sidebar = L.control.sidebar('sidebar').addTo(map);
+	sidebar.open('layers');
+	   var panel= L.control.groupedLayers(baseMaps,groupedOverlays,{collapsed:false}).addTo(map);
+		var htmlObject = panel.getContainer();
+		  var a = document.getElementById('seznamvrstev')
+		  function setParent(el, newParent){
+			newParent.appendChild(el);
+		  }
+		  setParent(htmlObject, a);
+	
+	
 });
