@@ -170,17 +170,18 @@ $(document).ready(function () {
     });
     map.addControl(drawControl);
 
-    //map.on('draw:created', function (e) {
-    //var type = e.layerType,
-    //layer = e.layer;
-    //if (type === 'marker') {
-    //layer.bindPopup('A popup!');
-    //}
-    //drawnItems.addLayer(layer);
-    //});
+    map.on('draw:created', function (e) {
+    var type = e.layerType,
+    layer = e.layer;
+    if (type === 'marker') {
+    layer.bindPopup('Locatie Nieuw Verhaal');
+    }
+	e.layer.openPopup();
+    drawnItems.addLayer(layer);
+    });
 
     //Custom functions upon 'edit'
-    map.on('draw:created', function (e) {
+    /*map.on('draw:created', function (e) {
         var coords = e.layer._latlng;
         console.log(coords);
         var tempMarker = featureGroup.addLayer(e.layer);
@@ -232,7 +233,7 @@ $(document).ready(function () {
             console.log(date);
 
         });
-    });
+    });*/
 
     var zoom_bar = new L.Control.ZoomBar({
         position: 'topright',
@@ -286,5 +287,16 @@ $(document).ready(function () {
 		  }
 		  setParent(htmlObject, a);
 	
+	map.on('click', function(e) {
+    $('#latInput').val(e.latlng.lat);
+    $('#lngInput').val(e.latlng.lng);
+    updateMarker(e.latlng.lat, e.latlng.lng);
+	});  
+            
+    var updateMarkerByInputs = function() {
+	return updateMarker( $('#latInput').val() , $('#lngInput').val());
+	}
+	$('#latInput').on('input', updateMarkerByInputs);
+	$('#lngInput').on('input', updateMarkerByInputs);
 	
 });
