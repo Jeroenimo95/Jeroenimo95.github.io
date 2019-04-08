@@ -64,8 +64,8 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Heeswijk",
                 "Ond_titel": "‘’Ik kan het me allemaal nog zo goed herinneren’’, vertelt Jeanne Hoevenaars-Voets. ‘’Ik was maar drie jaar oud, maar kan me nog zoveel beelden voor de geest halen.’’",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
-                "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
+                "html_exp": "<img src = 'img/Busreis.jpg' style= 'width: 100%'/>",
+                "url": "<a href = 'https://www.brabantremembers.com/verzet/gered-door-een-dappere-busreis/' target=_blank>hier</a>"
             },
             "geometry": {
                 "type": "Point",
@@ -80,8 +80,8 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Vught",
                 "Ond_titel": "Naarmate de oorlog vorderde nam de Jodenvervolging in Europa steeds ernstiger vormen aan. Op diverse plaatsen in Europa werden concentratiekampen gebouwd.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
-                "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
+                "html_exp": "<img src = 'img/george_ursula.jpg' style= 'width: 100%'/>",
+                "url": "<a href = 'https://www.brabantremembers.com/vervolging/george-en-ursula/' target=_blank>hier</a>"
             },
             "geometry": {
                 "type": "Point",
@@ -128,8 +128,8 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "'s-Hertogenbosch",
                 "Ond_titel": "Duitsers waren ze, volgens de paperassen. In de jaren dertig woonden ze op de Wolvenhoek tegenover het belastingkantoor in Den Bosch.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
-                "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
+                "html_exp": "<img src = 'img/rontge.jpg' style= 'width: 100%'/>",
+                "url": "<a href = 'https://www.brabantremembers.com/bezetting/wat-je-niet-op-een-rontgenfoto-ziet/' target=_blank>hier</a>"
             },
             "geometry": {
                 "type": "Point",
@@ -160,8 +160,8 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Best",
                 "Ond_titel": "Vanaf 18 september 1944 was het onrustig in de omgeving van Best. Amerikaanse soldaten rukten op vanuit Eindhoven. Duitse soldaten verschansten zich in de hoge kerktoren van Best.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
-                "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
+                "html_exp": "<img src = 'img/glimmend_doosje' style= 'width: 100%'/>",
+                "url": "<a href = 'https://www.brabantremembers.com/strijd-1944/een-klein-blinkend-doosje/' target=_blank>hier</a>"
             },
             "geometry": {
                 "type": "Point",
@@ -176,7 +176,7 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Oirschot",
                 "Ond_titel": "Hoe kom ik aan betrouwbaar nieuws? Die vraag werd voor veel Nederlanders in de loop van de oorlogsjaren steeds dringender. Want langzaam maar zeker waren steeds minder Nederlandse nieuwsbronnen onafhankelijk.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
+                "html_exp": "<img src = 'img/radio.jpg' style= 'width: 100%'/>",
                 "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
 
             },
@@ -193,7 +193,7 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Sonniuswijk",
                 "Ond_titel": "In september 1944 begon de bevrijding van Nederland met de start van Operatie Market Garden. In de omgeving van Son en Best landden talrijke parachutisten en vliegtuigen vol oorlogsmaterieel.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
+                "html_exp": "<img src = 'img/verjaardag.jpg' style= 'width: 100%'/>",
                 "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
             },
             "geometry": {
@@ -209,7 +209,7 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Nuenen",
                 "Ond_titel": "\nVoor veel Brabanders waren naast Britten, Canadezen en Amerikanen, Polen dé bevrijders. Minder bekend was toen, maar ook nu, dat eveneens veel Polen betrokken zijn geweest bij de strijd in de lucht.",
-                "html_exp": "<img src = 'img/map034-300x227.png' style= 'width: 100%'/>",
+                "html_exp": "<img src = 'img/flight.png' style= 'width: 100%'/>",
                 "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
             },
             "geometry": {
