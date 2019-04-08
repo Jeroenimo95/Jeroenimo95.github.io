@@ -160,7 +160,7 @@ var json_verhalen = {
                 "Categorie": "Historie",
                 "Locatie": "Best",
                 "Ond_titel": "Vanaf 18 september 1944 was het onrustig in de omgeving van Best. Amerikaanse soldaten rukten op vanuit Eindhoven. Duitse soldaten verschansten zich in de hoge kerktoren van Best.",
-                "html_exp": "<img src = 'img/glimmend_doosje' style= 'width: 100%'/>",
+                "html_exp": "<img src = 'img/glimmend_doosje.jpg' style= 'width: 100%'/>",
                 "url": "<a href = 'https://www.brabantremembers.com/strijd-1944/een-klein-blinkend-doosje/' target=_blank>hier</a>"
             },
             "geometry": {
