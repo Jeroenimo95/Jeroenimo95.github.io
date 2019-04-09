@@ -151,7 +151,7 @@ $(document).ready(function () {
     var featureGroup = new L.FeatureGroup().addTo(map);
     //map.addLayer(drawnItems);
 	
-	var miniMap = new L.Control.MiniMap(minis, { toggleDisplay: true, width:120, height:120, zoomLevelOffset:-4.5 }).addTo(map);
+	var miniMap = new L.Control.MiniMap(minis, { toggleDisplay: true, width:150, height:150, zoomLevelOffset:-4.5 }).addTo(map);
 
     var drawControl = new L.Control.Draw({
         position: 'topright',
@@ -171,13 +171,13 @@ $(document).ready(function () {
     map.addControl(drawControl);
 
     map.on('draw:created', function (e) {
-    var type = e.layerType,
-    layer = e.layer;
-    if (type === 'marker') {
-    layer.bindPopup('Locatie Nieuw Verhaal');
-    }
-	e.layer.openPopup();
-    drawnItems.addLayer(layer);
+        var coords = e.layer._latlng;
+        console.log(coords);
+        var tempMarker = featureGroup.addLayer(e.layer);
+        tempMarker.bindPopup("Locatie Nieuw Verhaal", {
+            keepInView: true,
+            closeButton: false
+        }).openPopup();
     });
 
     //Custom functions upon 'edit'
