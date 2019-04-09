@@ -5,7 +5,7 @@ $('#toolbar .hamburger').on('click', function() {
 var mymap = L.map('leafletmap', {
   zoomControl: false
 });
-var mapTiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var mapTiles = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19,
   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
