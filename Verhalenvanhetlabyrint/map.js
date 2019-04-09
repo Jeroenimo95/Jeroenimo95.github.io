@@ -105,38 +105,30 @@ $(document).ready(function () {
     var layer_WineryHerbsplattegrond = new L.imageOverlay(img_WineryHerbsplattegrond, img_bounds_WineryHerbsplattegrond);
     bounds_group.addLayer(layer_WineryHerbsplattegrond);
 
-    var verhalenLaag = new L.GeoJSON(json_verhalen, {
+    var oorlogLaag = new L.GeoJSON(json_oorlog, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
             },
             pointToLayer: function (feature, latLng) {
-                if (feature.properties.Thema == "Oorlogsverhalen") {
-                    return new L.Marker(latLng, {
+                return new L.Marker(latLng, {
                         icon: oorlogIcon
                     });
-
                 }
-                if (feature.properties.Thema == "Cultuurhistorie") {
-                    return new L.Marker(latLng, {
+            })
+        .addTo(map);
+		
+	var gebouwLaag = new L.GeoJSON(json_gebouw, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
+            },
+            pointToLayer: function (feature, latLng) {
+                return new L.Marker(latLng, {
                         icon: gebouwenIcon
                     });
-
                 }
-            }
-        })
+            })
         .addTo(map);
-    map.on("zoomend", function (e) {
-        if (map.getZoom() <= 18 && map.getZoom() >= 7) {
-            map.addLayer(lijnenLaag);
-        } else if (map.getZoom() > 16 || map.getZoom() < 7) {
-            map.removeLayer(lijnenLaag);
-        }
-        if (map.getZoom() <= 24 && map.getZoom() >= 16) {
-            map.addLayer(layer_WineryHerbsplattegrond);
-        } else if (map.getZoom() > 19 || map.getZoom() < 16) {
-            map.removeLayer(layer_WineryHerbsplattegrond);
-        }
-    });
+    
     var lijnenLaag = new L.GeoJSON(json_Lijnen, {
         style: LijnStyle,
     });
@@ -271,11 +263,11 @@ $(document).ready(function () {
 
     var groupedOverlays = {                                                              
     "<b style=color:rgb(220,31,37);>Lagen</b> <br>": {
-		"Verhalen <img src='https://image.flaticon.com/icons/png/512/236/236981.png' height=25  style= 'margin-left: 17px'> ": verhalenLaag,
-		"Lijnen     <img src='http://krishnahospitalhaldwani.com/wp-content/uploads/2016/06/hostel-Icon.png' height=25 style= 'margin-left: 32px'> ":   lijnenLaag,
+		"Oorlog 	<img src='img/oorlog.svg' height=25  style= 'margin-left: 32px'> ": oorlogLaag,
+		"Gebouwen 	<img src='img/gebouwen.svg' height=25  style= 'margin-left: 12px'> ": gebouwLaag,
+		"Lijnen		<img src='http://krishnahospitalhaldwani.com/wp-content/uploads/2016/06/hostel-Icon.png' height=25 style= 'margin-left: 32px'> ":   lijnenLaag,
 		}	  
 	};
-	
 	
 	var sidebar = L.control.sidebar('sidebar').addTo(map);
 	sidebar.open('layers');

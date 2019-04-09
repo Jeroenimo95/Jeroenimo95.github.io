@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/leaflet-search.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="css/L.Control.ZoomBar.css" />
-	<link rel="stylesheet" href="css/leaflet.groupedlayercontrol.css" />
+	<!-- <link rel="stylesheet" href="css/leaflet.groupedlayercontrol.css" /> -->
 	<link rel="stylesheet" href="css/Control.MiniMap.css" />
 	
     <script src="js/leaflet-sidebar.js"></script>
@@ -35,7 +35,8 @@
     <link src="css/map.css" rel="stylesheet">
 
     <!-- eigen js files -->
-    <script src="data.js"></script>
+    <script src="data/Gebouwen.js"></script>
+	<script src="data/Oorlog.js"></script>
     <script src="Lijnen.js"></script>
     <script src="map.js"></script>
     <script src="data/provincies_0.js"></script>
@@ -46,36 +47,11 @@
             margin: 0;
         }
 
-        html,
-        body,
-        #map {
+        html, body, #map {
             height: 100%;
             width: 100%;
         }
 		
-        .custom-popup .leaflet-popup-content-wrapper {
-            background: #751423;
-            color: #fff;
-            font-size: 16px;
-            line-height: 24px;
-        }
-
-        .custom-popup .leaflet-popup-content-wrapper a {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        .custom-popup .leaflet-popup-tip-container {
-            width: 40px;
-            height: 15px;
-        }
-
-        .custom-popup .leaflet-popup-tip {
-            width: 17px;
-            height: 17px;
-            padding: 1px;
-            background: #2c3e50;
-        }
-
     </style>
 </head>
 
