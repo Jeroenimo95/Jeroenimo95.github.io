@@ -17,27 +17,27 @@
     <link rel="stylesheet" href="css/leaflet-search.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <link rel="stylesheet" href="css/L.Control.ZoomBar.css" />
-	<!-- <link rel="stylesheet" href="css/leaflet.groupedlayercontrol.css" /> -->
-	<link rel="stylesheet" href="css/Control.MiniMap.css" />
-	
+    <!-- <link rel="stylesheet" href="css/leaflet.groupedlayercontrol.css" /> -->
+    <link rel="stylesheet" href="css/Control.MiniMap.css" />
+
     <script src="js/leaflet-sidebar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.4.9/leaflet.draw.js"></script>
     <script src="js/leaflet-search.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/L.Control.ZoomBar.js"></script>
-	<script src="js/leaflet.groupedlayercontrol.js"></script>
-	<script src="js/Control.MiniMap.js" type="text/javascript"></script>
-	
-	<!-- Icon -->
+    <script src="js/leaflet.groupedlayercontrol.js"></script>
+    <script src="js/Control.MiniMap.js" type="text/javascript"></script>
+
+    <!-- Icon -->
     <link rel="stylesheet" type="text/css" href="../assets/fonts/simple-line-icons.css">
 
     <!-- eigen css files -->
     <link src="css/map.css" rel="stylesheet">
 
     <!-- eigen js files -->
-    <script src="data/Gebouwen.js"></script>
-	<script src="data/Oorlog.js"></script>
-    <script src="data/Lijnen.js"></script>
+    <script src="data/Gebouwen.json"></script>
+    <script src="data/Oorlog.json"></script>
+    <script src="data/Lijnen.json"></script>
     <script src="js/map.js"></script>
     <script src="data/provincies_0.js"></script>
 
@@ -51,7 +51,21 @@
             height: 100%;
             width: 100%;
         }
-		
+        
+        .leaflet-control-layers-toggle:after{ 
+            content:"your text"; 
+            color:#000 ;
+        }
+        .leaflet-control-layers-toggle{ 
+            width:auto;
+            background-position:3px 50% ;
+            padding:3px;
+            padding-left:36px;
+            text-decoration:none;
+            line-height:36px;
+
+        }
+
     </style>
 </head>
 
@@ -64,11 +78,11 @@
             <!-- top aligned tabs -->
             <ul role="tablist">
                 <li><a href="#layers" role="tab"><i class="icon-layers"></i></a></li>
-				<li><a href="#legend" role="tab"><i class="icon-list"></i></a></li>
-				<!-- <li><a href="#home" role="tab"><i class="fa fa-bars active"></i></a></li> -->
+                <li><a href="#legend" role="tab"><i class="icon-list"></i></a></li>
+                <!-- <li><a href="#home" role="tab"><i class="fa fa-bars active"></i></a></li> -->
                 <li><a href="#info" role="tab"><i class="fa fa-info"></i></a></li>
-                <!-- <li><a href="#voorwaarden" role="tab"><i class="fa fa-wpforms"></i></a></li> -->			
-				<li><a href="#nieuw" role="tab"><i class="fa fa-wpforms"></i></a></li>			
+                <!-- <li><a href="#voorwaarden" role="tab"><i class="fa fa-wpforms"></i></a></li> -->
+                <li><a href="#nieuw" role="tab"><i class="fa fa-wpforms"></i></a></li>
             </ul>
 
             <!-- bottom aligned tabs -->
@@ -85,11 +99,11 @@
                     Lagen
                     <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-				<div id="seznamvrstev"> 
-                     </div>
+                <div id="seznamvrstev">
+                </div>
             </div>
-			
-			<!-- <div class="leaflet-sidebar-pane" id="home">
+
+            <!-- <div class="leaflet-sidebar-pane" id="home">
                 <h1 class="leaflet-sidebar-header">
                     <img id="logo" src="img/VvhL_Logo.png" height=50%>
                     Verhalen van het Labyrint
@@ -114,27 +128,27 @@
                     Land-Art Project Info
                     <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
-				<h2>Interessante Links</h2>
+                <h2>Interessante Links</h2>
                 <ul>
                     <li><a href="https://www.wineryandherbs.nl/labyrint-verhalen/" target="blank">Homepagina Verhalen van het Labyrint</a></li>
                     <li><a href="https://www.wineryandherbs.nl/labyrint-verhalen/" target="blank">Land-Art Project informatie</a></li>
                     <li><a href="https://www.wineryandherbs.nl/labyrint-verhalen/" target="blank">Evenementenagenda</a></li>
                     <li><a href="https://www.wineryandherbs.nl/labyrint-verhalen/" target="blank">Verhalenschat</a></li>
                     <li><a href="https://www.wineryandherbs.nl/" target="blank">Winery & Herbs</a></li>
-                </ul>				
+                </ul>
                 <h3>Onstaan van "Verhalen van het Labyrint"</h3>
-                <p style= "width:90%;">
+                <p style="width:90%;">
                     Centraal in Het Groene Woud, op de locatie van Winery & Herbs, is in 2012 naar het voorbeeld van het 12e-eeuwse labyrint in de kathedraal van Chartres (Frankrijk), een druivenlabyrint aangeplant met verschillende soorten druivenstokken. Deze locatie is niet toevallig, want Winery & Herbs heeft, als een van de acht bezoekerscentra van nationaal landschap Het Groene Woud, een sterke ambitie om het toeristisch-recreatieve aanbod maximaal voor het voetlicht te brengen. Bovendien wil de initiatiefnemer de krachten bundelen met uiteenlopende andere toeristisch-recreatieve en cultuurhistorische initiatieven in de omgeving. Dit alles met de bedoeling om de potenties van Het Groene Woud maximaal te benutten en meer bezoekers te trekken.
                 </p>
                 <img src="img/Labyrint_Chartes.JPG" width=90%;>
-                <p style= "width:90%;">
+                <p style="width:90%;">
                     Het Labyrint van Chartres heeft o.a. een religieuze betekenis. Vanuit de christelijke opvatting staat het kruis voor het offer dat nodig is om een nieuwe richting in te slaan. Ook wordt het labyrint als zoektocht in het onderbewustzijn weergegeven. Het letterlijk doorlopen van het labyrint verklaart vaak de voldoening die gevonden wordt zodra men het middelpunt bereikt en men kan terugkijken op de wirwar van paden die is afgelegd. Het kenmerk van het labyrint is dat een ieder altijd het centrum bereikt, ondanks de bochten en tegengestelde richtingen, zonder te verdwalen. Het middelpunt wordt als het middelpunt van je eigen wezen beschouwd en vervolgens kunnen weer nieuwe richtingen worden ingeslagen.
                 </p>
                 <img src="img/labyrint.jpg" width=90%;>
-                <p style= "width:90%;">
+                <p style="width:90%;">
                     Het Druivenlabyrint staat daarmee voor bezinning, bezieling, inkeer en rust waarbij je jezelf centraal stelt tijdens de activiteit. In het labyrint ben je vooral met jezelf en je eigen ontwikkeling bezig. Met deze gedachten is het idee ontstaan om, nadat je het Druivenlabyrint hebt aangedaan, weer in contact te komen met de omgeving; in contact te komen met Het Groene Woud!
                 </p>
-				<iframe style= "width=90%;" id="iframe" src="https://www.youtube.com/embed/k3djzO_fK8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe style="width=90%;" id="iframe" src="https://www.youtube.com/embed/k3djzO_fK8U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
 
             <!-- <div class="leaflet-sidebar-pane" id="voorwaarden">
@@ -155,27 +169,28 @@
                 <p>Uw Verhaal zal na controle van de leden van de stiching online getoond op de website van <span><a href="https://wineryandherbs.nl/labyrint-verhalen/" target="blank">Verhalen van het Labyrint</a></span> als onderdeel van het Land-Art Project</p>
                 <p><strong>Lever <a href="https://wineryandherbs.nl/labyrint-verhalen/" target="blank">hier </a>uw verhaal aan.</strong></p>
             </div> -->
-			
-			<div class="leaflet-sidebar-pane" id="nieuw">
+
+            <div class="leaflet-sidebar-pane" id="nieuw">
                 <h1 class="leaflet-sidebar-header">
                     <img id="logo" src="img/VvhL_Logo.png" height=50%>
                     Nieuw verhaal
                     <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
                 <h4 style="width: 300px"> Click on the map and add the point! </h4>
-                    <div class="form" style="width: 150px; color:rgb(220,31,37)">  <form action="save.php" method="post" target="hiddenFrame" > 
-						 <label for="latInput">Latitude</label> <input type="text"   name="lat" id="latInput"/>
-							 <label for="lngInput">Longitude</label> <input type="text" name="long" id="lngInput"  />
-						 Titel verhaal <input type="text" name="name" value="">
+                <div class="form" style="width: 150px; color:rgb(220,31,37)">
+                    <form action="save.php" method="post" target="hiddenFrame">
+                        <label for="latInput">Latitude</label> <input type="text" name="lat" id="latInput" />
+                        <label for="lngInput">Longitude</label> <input type="text" name="long" id="lngInput" />
+                        Titel verhaal <input type="text" name="name" value="">
 
-							
-						 Korte beschrijving verhaal <textarea name="textarea" cols="17" rows="3">
-						 </textarea>  
-						<input type="file" name="file">
-						 <input type="image" src="../img/submit.png"  border="0"  alt="Submit" />
-						 <input type="reset" value="Clear">
+
+                        Korte beschrijving verhaal <textarea name="textarea" cols="17" rows="3">
+						 </textarea>
+                        <input type="file" name="file">
+                        <input type="image" src="../img/submit.png" border="0" alt="Submit" />
+                        <input type="reset" value="Clear">
+                </div>
             </div>
-			</div>
 
             <div class="leaflet-sidebar-pane" id="legend">
                 <h1 class="leaflet-sidebar-header">
@@ -184,29 +199,29 @@
                     <span class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></span>
                 </h1>
                 <br>
-                    <div>
-                        <table>
-                            <tr>
-                                <td><img src="img/oorlog.svg" width="50px"></td>
-                                <td>Oorlogsverhaal</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/gebouwen.svg" width="50px"></td>
-                                <td>Historie/Gebouw verhalen</td>
-                            </tr>
-                            <tr>
-                                <td><img src="img/Nieuw_%20locatie.png" width="50px"></td>
-                                <td>Nieuw Verhaal toevoegen</td>
-                            </tr>
-                            
-                        </table>
-                    </div>
+                <div>
+                    <table>
+                        <tr>
+                            <td><img src="img/oorlog.svg" width="50px"></td>
+                            <td>Oorlogsverhaal</td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/gebouwen.svg" width="50px"></td>
+                            <td>Historie/Gebouw verhalen</td>
+                        </tr>
+                        <tr>
+                            <td><img src="img/Nieuw_%20locatie.png" width="50px"></td>
+                            <td>Nieuw Verhaal toevoegen</td>
+                        </tr>
+
+                    </table>
                 </div>
-
             </div>
-        </div>
 
-        <div class="custom-popup" id="map"></div>
+        </div>
+    </div>
+
+    <div class="custom-popup" id="map"></div>
 
 </body>
 

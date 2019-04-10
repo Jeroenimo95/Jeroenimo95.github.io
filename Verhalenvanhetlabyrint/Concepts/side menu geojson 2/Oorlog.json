@@ -1,23 +1,16 @@
-var json_verhalen = {
-    "type": "FeatureCollection",
-    "name": "verhalen",
-    "crs": {
-        "type": "name",
-        "properties": {
-            "name": "urn:ogc:def:crs:EPSG::3857"
-        }
-    },
-    "features": [
-        {
+{
+	"type": "FeatureCollection",
+
+	"features": [{
             "type": "Feature",
             "properties": {
                 "Titel": "HIER VERREES MIJN PHOENIX UIT ZIJN AS",
                 "Thema": "Oorlogsverhalen",
                 "Categorie": "Historie",
                 "Locatie": "Eerde",
-				"Ond_titel": "De Tweede Wereldoorlog barstte van bruut geweld en bloedvergieten. Heel af en toe was er een sprankje hoop op vrede en geluk. Liefde hield mensen op de been. Ook de liefde tussen Elaine Smith en haar parachutist Carman Ladner was veelbelovend. Ze ontmoet",
-                "html_exp": "<img src = 'img/Hier_verrees.jpg' style= 'width: 100%'/>",
-                "url": "<a href = 'https://www.brabantremembers.com/strijd-1944/hier-verrees-mijn-phoenix-uit-zijn-as/' target=_blank>hier</a>"
+                "Ond_titel": "De Tweede Wereldoorlog barstte van bruut geweld en bloedvergieten. Heel af en toe was er een sprankje hoop op vrede en geluk. Liefde hield mensen op de been. Ook de liefde tussen Elaine Smith en haar parachutist Carman Ladner was veelbelovend. Ze ontmoet",
+                "html_exp": "Hier_verrees.jpg",
+                "url": "https://www.brabantremembers.com/strijd-1944/hier-verrees-mijn-phoenix-uit-zijn-as/"
             },
             "geometry": {
                 "type": "Point",
@@ -113,7 +106,7 @@ var json_verhalen = {
                 "Locatie": "'s-Hertogenbosch",
                 "Ond_titel": "Alle leven begint klein. Met een cel die zich deelt. Uit die splitsing ontstaan nieuwe cellen, die zich telkens weer delen. Zo groeit leven, wist de Joodse Annie Troostwijk-Samuel [27].",
                 "html_exp": "<img src = 'img/map025-300x225.jpg' style= 'width: 100%'/>",
-				"url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
+                "url": "<a href = 'https://www.wineryandherbs.nl/labyrint-verhalen/' target=_blank>hier</a>"
             },
             "geometry": {
                 "type": "Point",

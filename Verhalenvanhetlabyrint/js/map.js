@@ -69,7 +69,7 @@ $(document).ready(function () {
         attribution: stratenAttrib
     });
     
-	var minis=L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+	var minis = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
       	maxZoom: 18,
       	attribution: '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'});
 	
@@ -116,6 +116,20 @@ $(document).ready(function () {
                 }
             })
         .addTo(map);
+    
+    /*
+    var oorlogLaag = new L.GeoJSON(json_oorlog, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
+            },
+            pointToLayer: function (feature, latLng) {
+                return new L.Marker(latLng, {
+                        icon: oorlogIcon
+                    });
+                }
+            })
+        .addTo(map); 
+        */
 		
 	var gebouwLaag = new L.GeoJSON(json_gebouw, {
             onEachFeature: function (feature, layer) {
