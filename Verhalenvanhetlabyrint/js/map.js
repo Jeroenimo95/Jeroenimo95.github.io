@@ -68,14 +68,29 @@ $(document).ready(function () {
     var straten = new L.TileLayer(stratenUrl, {
         attribution: stratenAttrib
     });
-    
-	var minis = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      	maxZoom: 18,
-      	attribution: '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'});
-	
-	map.addLayer(osm);
-	
-	//Icons
+
+    var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
+    });
+
+    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    });
+
+    var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
+        attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        apikey: 'c5d432b20da2466caedd226d7e2cf400',
+        maxZoom: 22
+    });
+
+    var minis = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+    });
+
+    map.addLayer(osm);
+
+    //Icons
     var oorlogIcon = new L.Icon({
         iconUrl: 'img/oorlog.svg',
         iconSize: [25, 25],
@@ -111,12 +126,12 @@ $(document).ready(function () {
             },
             pointToLayer: function (feature, latLng) {
                 return new L.Marker(latLng, {
-                        icon: oorlogIcon
-                    });
-                }
-            })
+                    icon: oorlogIcon
+                });
+            }
+        })
         .addTo(map);
-    
+
     /*
     var oorlogLaag = new L.GeoJSON(json_oorlog, {
             onEachFeature: function (feature, layer) {
@@ -130,19 +145,19 @@ $(document).ready(function () {
             })
         .addTo(map); 
         */
-		
-	var gebouwLaag = new L.GeoJSON(json_gebouw, {
+
+    var gebouwLaag = new L.GeoJSON(json_gebouw, {
             onEachFeature: function (feature, layer) {
                 layer.bindPopup('<h2> ' + feature.properties.Titel + ' </h2><b> ' + feature.properties.html_exp + ' </b><p>' + feature.properties.Ond_titel + '</p>' + ' </b><p>Meer weten? klik <a href' + feature.properties.url + ' </a>.</p>');
             },
             pointToLayer: function (feature, latLng) {
                 return new L.Marker(latLng, {
-                        icon: gebouwenIcon
-                    });
-                }
-            })
+                    icon: gebouwenIcon
+                });
+            }
+        })
         .addTo(map);
-    
+
     var lijnenLaag = new L.GeoJSON(json_Lijnen, {
         style: LijnStyle,
     });
@@ -152,16 +167,21 @@ $(document).ready(function () {
         style: ProvStyle,
     });
     map.addLayer(provincieLaag);
-    
+
     function clickZoom(e) {
-	map.setView(e.target.getLatLng(),15);
+        map.setView(e.target.getLatLng(), 15);
     }
 
     // Draw control
     var featureGroup = new L.FeatureGroup().addTo(map);
     //map.addLayer(drawnItems);
-	
-	var miniMap = new L.Control.MiniMap(minis, { toggleDisplay: true, width:150, height:150, zoomLevelOffset:-4.5 }).addTo(map);
+
+    var miniMap = new L.Control.MiniMap(minis, {
+        toggleDisplay: true,
+        width: 150,
+        height: 150,
+        zoomLevelOffset: -4.5
+    }).addTo(map);
 
     var drawControl = new L.Control.Draw({
         position: 'topright',
@@ -257,7 +277,8 @@ $(document).ready(function () {
         }
     }).addTo(map);
 
-    /*Layer control
+    /* Oude versie
+    Layer control
     var achtergronden = {
         'Zwart Wit': osm,
         'Straten': straten
@@ -272,7 +293,7 @@ $(document).ready(function () {
         position: 'topright',
 
     });
-    map.addControl(lagenSwitcher);*/
+    map.addControl(lagenSwitcher);
 	
 	var baseMaps = {
     'Zwart Wit': osm,
@@ -291,7 +312,7 @@ $(document).ready(function () {
 	sidebar.open('layers');
 	   var panel= L.control.groupedLayers(baseMaps,groupedOverlays,{collapsed:false}).addTo(map);
 		var htmlObject = panel.getContainer();
-		  var a = document.getElementById('seznamvrstev')
+		  var a = document.getElementById('lagenlegend')
 		  function setParent(el, newParent){
 			newParent.appendChild(el);
 		  }
@@ -308,5 +329,93 @@ $(document).ready(function () {
 	}
 	$('#latInput').on('input', updateMarkerByInputs);
 	$('#lngInput').on('input', updateMarkerByInputs);
-	
+	*/
+
+    var baseMaps = [
+        {
+            groupName: "Base Maps",
+            expanded: true,
+            layers: {
+                "Satellite": Esri_WorldImagery,
+                "Wegenkaart": straten,
+                "Fietskaart": Thunderforest_OpenCycleMap,
+                "Basiskaart": osm,
+            }
+					}
+        /*, {
+        						groupName : "Verhalen",
+                                expanded : true,
+        						layers    : {
+        							"Wereldoorlogen" :  oorlogLaag,
+        							"Cultuurhistorie"  :  gebouwLaag,
+        						}
+        					}, {
+        						groupName : "Bing Base Maps",
+        						layers    : {
+        							"Satellite" : bing1,
+        							"Road"      : bing2
+        						}
+        					} */
+	];
+
+    var overlays = [
+        {
+            groupName: "Verhalen",
+            expanded: true,
+            layers: {
+                "Wereldoorlogen": oorlogLaag,
+                "Cultuurhistorie": gebouwLaag,
+            }
+					 }
+        /*, {
+        						groupName : "Rio de Janeiro",
+        						expanded  : true,
+        						layers    : { 
+        							"Bean Plant"     : bean_rj,
+        							"Corn Plant" 	 : corn_rj,
+        							"Rice Plant"	 : rice_rj		
+        						}	
+        					 }, {
+        						groupName : "Belo Horizonte",
+        						layers    : { 
+        							"Sugar Cane Plant"	: sugar_bh,
+        							"Corn Plant" 	 	: corn_bh		
+        						}	
+        					 } */
+	];
+
+    // configure StyledLayerControl options for the layer soybeans_sp
+    oorlogLaag.StyledLayerControl = {
+        removable: false,
+        visible: false
+    }
+
+    // configure the visible attribute with true to corn_bh
+    gebouwLaag.StyledLayerControl = {
+        removable: false,
+        visible: false
+    }
+
+    var options = {
+        container_width: "300px",
+        group_maxHeight: "80px",
+        //container_maxHeight : "350px", 
+        exclusive: false,
+        collapsed: false,
+        position: 'topright'
+    };
+    
+    var sidebar = L.control.sidebar('sidebar').addTo(map);
+	sidebar.open('layers');
+
+    var control = L.Control.styledLayerControl(baseMaps, overlays, options);
+    map.addControl(control);
+    
+    var htmlObject = control.getContainer();
+		  var a = document.getElementById('lagenlegend')
+		  function setParent(el, newParent){
+			newParent.appendChild(el);
+		  }
+		  setParent(htmlObject, a);
+
 });
