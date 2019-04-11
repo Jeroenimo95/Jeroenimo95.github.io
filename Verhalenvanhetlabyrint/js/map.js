@@ -31,13 +31,13 @@ $(document).ready(function () {
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
 
     //Controls
-    /*var sidebar = L.control.sidebar({
+    var sidebar = L.control.sidebar({
             container: 'sidebar'
         })
         .addTo(map)
         .open('info');
 
-    L.control.scale({
+    /*L.control.scale({
         position: 'bottomright'
     }).addTo(map);*/
 
@@ -397,9 +397,6 @@ $(document).ready(function () {
         //position: 'topright'
     };
     
-    var sidebar = L.control.sidebar('sidebar').addTo(map);
-	sidebar.open('layers');
-
     var control = L.Control.styledLayerControl(baseMaps, overlays, options);
     map.addControl(control);
     
@@ -413,11 +410,11 @@ $(document).ready(function () {
     map.on('click', function(e) {
     $('#latInput').val(e.latlng.lat);
     $('#lngInput').val(e.latlng.lng);
-    tempMarker(e.latlng.lat, e.latlng.lng);
+    temperMarker(e.latlng.lat, e.latlng.lng);
 	});  
             
     var updateMarkerByInputs = function() {
-	return tempMarker( $('#latInput').val() , $('#lngInput').val());
+	return temperMarker( $('#latInput').val() , $('#lngInput').val());
 	}
 	$('#latInput').on('input', updateMarkerByInputs);
 	$('#lngInput').on('input', updateMarkerByInputs);
