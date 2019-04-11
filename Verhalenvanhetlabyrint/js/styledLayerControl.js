@@ -1,7 +1,7 @@
 L.Control.StyledLayerControl = L.Control.Layers.extend({
     options: {
-        collapsed: true,
-        position: 'topright',
+        collapsed: false,
+        //position: 'topright',
         autoZIndex: true,
         group_togglers: {
             show: false,

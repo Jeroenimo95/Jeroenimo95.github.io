@@ -56,33 +56,27 @@ $(document).ready(function () {
     }));
 
     //MAPS
-    var osmUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
+    /*var osmUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png';
     var stratenUrl = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
 
     var osmAttrib = '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>';
     var stratenAttrib = 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012';
+    */
 
-    var osm = new L.TileLayer(osmUrl, {
-        attribution: osmAttrib
-    });
-    var straten = new L.TileLayer(stratenUrl, {
-        attribution: stratenAttrib
-    });
+    var osm = new L.tileLayer.provider('CartoDB.Positron');
+    
+    var straten = L.tileLayer.provider('CartoDB.Voyager');
 
-    var OpenStreetMap_HOT = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-    });
+    var OpenStreetMap_HOT = L.tileLayer.provider('OpenStreetMap.HOT');
 
-    var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-    });
+    var Esri_WorldImagery = L.tileLayer.provider('Esri.WorldImagery');
 
     var Thunderforest_OpenCycleMap = L.tileLayer('https://{s}.tile.thunderforest.com/cycle/{z}/{x}/{y}.png?apikey={apikey}', {
         attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         apikey: 'c5d432b20da2466caedd226d7e2cf400',
         maxZoom: 22
     });
-
+    
     var minis = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="https://www.openstreetkaart.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
@@ -329,17 +323,19 @@ $(document).ready(function () {
 	}
 	$('#latInput').on('input', updateMarkerByInputs);
 	$('#lngInput').on('input', updateMarkerByInputs);
-	*/
+    */
+	
 
     var baseMaps = [
         {
             groupName: "Base Maps",
             expanded: true,
             layers: {
-                "Satellite": Esri_WorldImagery,
-                "Wegenkaart": straten,
-                "Fietskaart": Thunderforest_OpenCycleMap,
-                "Basiskaart": osm,
+                "Satellite":    Esri_WorldImagery,
+                "Wegenkaart":   straten,
+                "Fietskaart":   Thunderforest_OpenCycleMap,
+                "Basiskaart":   osm,
+                "Stamen":       stamen
             }
 					}
         /*, {
@@ -363,8 +359,8 @@ $(document).ready(function () {
             groupName: "Verhalen",
             expanded: true,
             layers: {
-                "Wereldoorlogen": oorlogLaag,
-                "Cultuurhistorie": gebouwLaag,
+                "Wereldoorlogen <img src='img/oorlog.svg' height=26  style= 'margin-left: 12px'>": oorlogLaag,
+                "Cultuurhistorie <img src='img/gebouwen.svg' height=26  style= 'margin-left: 20px'>": gebouwLaag,
             }
 					 }
         /*, {
@@ -400,9 +396,9 @@ $(document).ready(function () {
         container_width: "300px",
         group_maxHeight: "80px",
         //container_maxHeight : "350px", 
-        exclusive: false,
-        collapsed: false,
-        position: 'topright'
+        //exclusive: false,
+        //collapsed: false,
+        //position: 'topright'
     };
     
     var sidebar = L.control.sidebar('sidebar').addTo(map);
@@ -418,4 +414,16 @@ $(document).ready(function () {
 		  }
 		  setParent(htmlObject, a);
 
+    map.on('click', function(e) {
+    $('#latInput').val(e.latlng.lat);
+    $('#lngInput').val(e.latlng.lng);
+    updateMarker(e.latlng.lat, e.latlng.lng);
+	});  
+            
+    var updateMarkerByInputs = function() {
+	return updateMarker( $('#latInput').val() , $('#lngInput').val());
+	}
+	$('#latInput').on('input', updateMarkerByInputs);
+	$('#lngInput').on('input', updateMarkerByInputs);
+    
 });
