@@ -162,10 +162,6 @@ $(document).ready(function () {
     });
     map.addLayer(provincieLaag);
 
-    function clickZoom(e) {
-        map.setView(e.target.getLatLng(), 15);
-    }
-
     // Draw control
     var featureGroup = new L.FeatureGroup().addTo(map);
     //map.addLayer(drawnItems);
@@ -394,7 +390,7 @@ $(document).ready(function () {
 
     var options = {
         container_width: "300px",
-        group_maxHeight: "80px",
+        group_maxHeight: "150px",
         //container_maxHeight : "350px", 
         //exclusive: false,
         //collapsed: false,
@@ -417,11 +413,11 @@ $(document).ready(function () {
     map.on('click', function(e) {
     $('#latInput').val(e.latlng.lat);
     $('#lngInput').val(e.latlng.lng);
-    updateMarker(e.latlng.lat, e.latlng.lng);
+    tempMarker(e.latlng.lat, e.latlng.lng);
 	});  
             
     var updateMarkerByInputs = function() {
-	return updateMarker( $('#latInput').val() , $('#lngInput').val());
+	return tempMarker( $('#latInput').val() , $('#lngInput').val());
 	}
 	$('#latInput').on('input', updateMarkerByInputs);
 	$('#lngInput').on('input', updateMarkerByInputs);
