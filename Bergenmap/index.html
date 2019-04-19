@@ -54,7 +54,9 @@
     }
 
     .active,
-    .accordion:hover {}
+    .accordion:hover {
+
+    }
 
     .panel {
       padding: 0 18px;
@@ -94,7 +96,7 @@
           Start
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
-        <div id="externaldiv">
+        <div id="externaldiv" class="leaflet-sidebar-text">
         </div>
       </div>
 
@@ -126,8 +128,8 @@
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
         <div class="leaflet-sidebar-text">
-          <p>A responsive sidebar for mapping libraries</p>
-        </div>
+        <p>A responsive sidebar for mapping libraries</p>
+      </div>
       </div>
 
       <div class="leaflet-sidebar-pane" id="monument">
@@ -204,9 +206,10 @@
 
     var map = L.map("map", mapOptions).setView([60.3736, 5.3367], 12);
 
-    var Hydda_Full = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 18
     }).addTo(map);
 
     var locations = new L.geoJSON(json_locaties, {
@@ -260,13 +263,13 @@
 
     var Eidfjord = new L.geoJSON(json_eidfjord, {
       "color": "#a7cdf2",
-      "weight": 5,
+      "weight": 7,
       "opacity": 0.95
     }).addTo(map);
 
     var Rosendal = new L.geoJSON(json_rosendal, {
       "color": "#f18d00",
-      "weight": 5,
+      "weight": 4,
       "opacity": 0.95
     }).addTo(map);
 
@@ -278,17 +281,9 @@
 
     var Gaulat = new L.geoJSON(json_gaulat, {
       "color": "#bbdaa4",
-      "weight": 5,
+      "weight": 4,
       "opacity": 0.95
     }).addTo(map);
-
-    function onEachFeature(feature, layer) {
-      layer.on({
-        click: function populate() {
-          document.getElementById('externaldiv').innerHTML = "BLAH BLAH BLAH " + feature.properties.name + "<br>" + feature.properties.description;
-        }
-      });
-    }
 
     map.on('click', function() {
       sidebar.hide();
@@ -300,6 +295,7 @@
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left', // left or right
     }).addTo(map);
+
   </script>
 
 </body>
