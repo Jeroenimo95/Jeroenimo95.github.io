@@ -21,6 +21,10 @@
 
   <script src="Data/locaties.geojson.js" charset="utf-8"></script>
   <script src="Data/Roadtrip.geojson.js" charset="utf-8"></script>
+  <script src="Data/Eidfjord.geojson.js" charset="utf-8"></script>
+  <script src="Data/Rosendal.geojson.js" charset="utf-8"></script>
+  <script src="Data/Herdla.geojson.js" charset="utf-8"></script>
+  <script src="Data/Gaulatfjellet.geojson.js" charset="utf-8"></script>
 
   <style media="screen">
     body {
@@ -50,9 +54,7 @@
     }
 
     .active,
-    .accordion:hover {
-      background-color: #fff;
-    }
+    .accordion:hover {}
 
     .panel {
       padding: 0 18px;
@@ -92,7 +94,7 @@
           Start
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
-        <div class="leaflet-sidebar-text">
+        <div id="externaldiv">
         </div>
       </div>
 
@@ -124,8 +126,8 @@
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
         <div class="leaflet-sidebar-text">
-        <p>A responsive sidebar for mapping libraries</p>
-      </div>
+          <p>A responsive sidebar for mapping libraries</p>
+        </div>
       </div>
 
       <div class="leaflet-sidebar-pane" id="monument">
@@ -216,6 +218,11 @@
         layer.on('mouseout', function() {
           layer.closePopup();
         });
+        layer.on({
+          click: function populate() {
+            document.getElementById('externaldiv').innerHTML = "BLAH BLAH BLAH " + feature.properties.Name + "<br>" + feature.properties.Date;
+          }
+        })
       },
       pointToLayer: function(feature, latLng) {
         if (feature.properties.Categorie == "Wandeling") {
@@ -249,11 +256,39 @@
 
         }
       }
-    }).addTo(map).on('click', function() {
-      sidebar.toggle();
-    });
+    }).addTo(map);
 
-    var routes = new L.geoJSON(json_routes, {}).addTo(map);
+    var Eidfjord = new L.geoJSON(json_eidfjord, {
+      "color": "#a7cdf2",
+      "weight": 5,
+      "opacity": 0.95
+    }).addTo(map);
+
+    var Rosendal = new L.geoJSON(json_rosendal, {
+      "color": "#f18d00",
+      "weight": 5,
+      "opacity": 0.95
+    }).addTo(map);
+
+    var Herdla = new L.geoJSON(json_herdla, {
+      "color": "#ffb3ba",
+      "weight": 5,
+      "opacity": 0.95
+    }).addTo(map);
+
+    var Gaulat = new L.geoJSON(json_gaulat, {
+      "color": "#bbdaa4",
+      "weight": 5,
+      "opacity": 0.95
+    }).addTo(map);
+
+    function onEachFeature(feature, layer) {
+      layer.on({
+        click: function populate() {
+          document.getElementById('externaldiv').innerHTML = "BLAH BLAH BLAH " + feature.properties.name + "<br>" + feature.properties.description;
+        }
+      });
+    }
 
     map.on('click', function() {
       sidebar.hide();
@@ -265,25 +300,6 @@
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left', // left or right
     }).addTo(map);
-
-    var poiLayers = L.layerGroup([
-        L.geoJson(wandelingen),
-        L.geoJson(siteseeing),
-        L.geoJson(monumenten),
-        L.geoJson(panorama)
-      ])
-      .addTo(map);
-
-    L.control.search({
-        layer: poiLayers,
-        initial: false,
-        propertyName: 'name',
-        buildTip: function(text, val) {
-          var type = val.layer.feature.properties.Categorie;
-          return '<a href="#" class="' + type + '">' + text + '<b>' + type + '</b></a>';
-        }
-      })
-      .addTo(map);
   </script>
 
 </body>
