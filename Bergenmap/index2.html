@@ -66,40 +66,6 @@
     .leaflet-sidebar-text {
       padding: 0 18px;
     }
-
-    /* customize look of leaflet zoom controls */
-    .leaflet-bar {
-      box-shadow: none;
-    }
-
-    .leaflet-control-zoom a {
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
-    }
-
-    .leaflet-bar a {
-      border-radius: 4px;
-      background-color: #375662;
-      border: 1px solid rgba(0, 0, 0, .15);
-      color: #dbe8f2;
-    }
-
-    .leaflet-bar a:last-child {
-      border: 1px solid rgba(0, 0, 0, .15);
-    }
-
-    .leaflet-bar a:hover {
-      background-color: #dbe8f2;
-      border: 1px solid rgba(0, 0, 0, .15);
-      color: #375662;
-    }
-
-    .leaflet-control-zoom-in {
-      margin-top: 10px;
-    }
-
-    .leaflet-control-zoom-out {
-      margin-top: 15px;
-    }
   </style>
 </head>
 
@@ -195,15 +161,14 @@
       });
     }
 
-    //Controls
     var routeStyle = {
-      "color": "#7ca5b6",
+      "color": "#9a362d",
       "weight": 4,
       "opacity": 0.9
     };
 
-    var highlightstyle = {
-      "color": '#436877',
+    var highlightStyle = {
+      "color": '#666',
       "weight": 5,
     }
 
@@ -291,10 +256,7 @@
           click: function populate() {
             document.getElementById('externaldiv').innerHTML = "BLAH BLAH BLAH " + feature.properties.Name + "<br>" + feature.properties.Date;
           }
-        });
-        layer.on('click', function(e) {
-          map.flyTo(e.latlng, 15);
-        });
+        })
       },
       pointToLayer: function(feature, latLng) {
         if (feature.properties.Categorie == "Wandeling") {
@@ -348,81 +310,85 @@
       }
     }).addTo(map);
 
-    function highlightFeature(e) {
-      var layer = e.target;
-
-      layer.setStyle({
-        weight: 5,
-        color: '#436877',
-      });
-
-      if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-      }
-    }
-
-    function resetHighlight(e) {
-      var layer = e.target;
-
-      layer.setStyle({
-        weight: 5,
-        opacity: 0.9,
-        color: '#7ca5b6',
-      });
-    }
-
-    function zoomToFeature(e) {
-      map.flyToBounds(e.target.getBounds());
-    }
-
-    function onEachFeature(feature, layer) {
-      layer.on({
-        mouseover: highlightFeature,
-        mouseout: resetHighlight,
-        click: zoomToFeature
-      });
-    }
-
     var Eidfjord = new L.geoJSON(json_eidfjord, {
-      style: routeStyle,
-      onEachFeature: onEachFeature
-    }).addTo(map)
-
-    map.on('click', function(e) {
-      sidebar.open('userinfo');
-    });
+      style: routeStyle
+    })
+    .on('mouseover', function (e) {
+        e.target.setStyle({
+          color: '#666',
+          weight: '5'
+        });
+    })
+    .on('mouseout', function (e) {
+        e.target.setStyle({
+          color: '#9a362d',
+          weight: '4',
+          opacity: '0.9'
+        });
+    })
 
     var Rosendal = new L.geoJSON(json_rosendal, {
-      style: routeStyle,
-      onEachFeature: onEachFeature
-    }).addTo(map);
+      style: routeStyle
+    })
+    .on('mouseover', function (e) {
+        e.target.setStyle({
+          color: '#666',
+          weight: '5'
+        });
+    })
+    .on('mouseout', function (e) {
+        e.target.setStyle({
+          color: '#9a362d',
+          weight: '4',
+          opacity: '0.9'
+        });
+    })
 
     var Herdla = new L.geoJSON(json_herdla, {
-      style: routeStyle,
-      onEachFeature: onEachFeature
-    }).addTo(map);
+      style: routeStyle
+    })
+    .on('mouseover', function (e) {
+        e.target.setStyle({
+          color: '#666',
+          weight: '5'
+        });
+    })
+    .on('mouseout', function (e) {
+        e.target.setStyle({
+          color: '#9a362d',
+          weight: '4',
+          opacity: '0.9'
+        });
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+        layer.bringToFront();
+    }
+    })
 
     var Gaulat = new L.geoJSON(json_gaulat, {
-      style: routeStyle,
-      onEachFeature: onEachFeature
-    }).addTo(map);
-
+      style: routeStyle
+    })
+    .on('mouseover', function (e) {
+        e.target.setStyle({
+          color: '#666',
+          weight: '5'
+        });
+    })
+    .on('mouseout', function (e) {
+        e.target.setStyle({
+          color: '#9a362d',
+          weight: '4',
+          opacity: '0.9'
+        });
+    })
     //var routeGroup = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat]);
 
+    var routes = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat], {}).addTo(map);
+
     var sidebar = L.control.sidebar({
-      autopan: true, // whether to maintain the centered map point when opening the sidebar
+      autopan: false, // whether to maintain the centered map point when opening the sidebar
       closeButton: true, // whether t add a close button to the panes
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left', // left or right
-
-    }).addTo(map);
-
-    map.on('click', function() {
-      sidebar.close();
-    });
-
-    L.control.scale({
-      position: 'bottomright'
     }).addTo(map);
   </script>
 
