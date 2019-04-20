@@ -12,12 +12,14 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
   <link rel="stylesheet" href="leaflet.awesome-markers.css">
   <link rel="stylesheet" href="leaflet-sidebar.css">
+  <link rel="stylesheet" href="L.Control.Zoombar.css">
 
   <!-- Make sure you put this AFTER Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
   <script src="leaflet.awesome-markers.js" charset="utf-8"></script>
   <script src="leaflet-sidebar.js" charset="utf-8"></script>
+  <script src="L.Control.Zoombar.js" charset="utf-8"></script>
 
   <script src="Data/locaties.geojson.js" charset="utf-8"></script>
   <script src="Data/Roadtrip.geojson.js" charset="utf-8"></script>
@@ -91,14 +93,6 @@
       background-color: #dbe8f2;
       border: 1px solid rgba(0, 0, 0, .15);
       color: #375662;
-    }
-
-    .leaflet-control-zoom-in {
-      margin-top: 10px;
-    }
-
-    .leaflet-control-zoom-out {
-      margin-top: 15px;
     }
   </style>
 </head>
@@ -211,63 +205,63 @@
     var wandelMarker = L.AwesomeMarkers.icon({
       icon: 'hiking',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var monumentMarker = L.AwesomeMarkers.icon({
       icon: 'university',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var siteMarker = L.AwesomeMarkers.icon({
       icon: 'binoculars',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var homeMarker = L.AwesomeMarkers.icon({
       icon: 'home',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var transportMarker = L.AwesomeMarkers.icon({
       icon: 'ship',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var brakeMarker = L.AwesomeMarkers.icon({
       icon: 'parking',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var fossenMarker = L.AwesomeMarkers.icon({
       icon: 'water',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var routeMarker = L.AwesomeMarkers.icon({
       icon: 'route',
       prefix: 'fa',
-      markerColor: 'cadetblue',
+      markerColor: 'darkred',
       iconColor: 'white'
     });
 
     var mapOptions = {
       minZoom: 8,
       maxZoom: 24,
-      zoomControl: true,
+      zoomControl: false,
     };
 
     var map = L.map("map", mapOptions).setView([60.3736, 5.3367], 12);
@@ -277,6 +271,10 @@
       subdomains: 'abcd',
       maxZoom: 18
     }).addTo(map);
+
+    map.on('click', function() {
+      sidebar.close();
+    });
 
     var locations = new L.geoJSON(json_locaties, {
       onEachFeature: function(feature, layer) {
@@ -293,7 +291,7 @@
           }
         });
         layer.on('click', function(e) {
-          map.flyTo(e.latlng, 15);
+          map.flyTo(e.latlng, 15, {duration: 1.1});
         });
       },
       pointToLayer: function(feature, latLng) {
@@ -409,6 +407,7 @@
 
     //var routeGroup = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat]);
 
+    //Controls
     var sidebar = L.control.sidebar({
       autopan: true, // whether to maintain the centered map point when opening the sidebar
       closeButton: true, // whether t add a close button to the panes
@@ -417,12 +416,12 @@
 
     }).addTo(map);
 
-    map.on('click', function() {
-      sidebar.close();
-    });
-
     L.control.scale({
       position: 'bottomright'
+    }).addTo(map);
+
+    var zoom_bar = new L.Control.ZoomBar({
+        position: 'bottomright',
     }).addTo(map);
   </script>
 

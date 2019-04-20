@@ -106,7 +106,7 @@
   display: none;
   left: 0;
   right: 0;
-  //box-sizing: border-box;
+  box-sizing: border-box;
   padding: 10px 0px; }
   .leaflet-sidebar-pane.active {
     display: block; }
