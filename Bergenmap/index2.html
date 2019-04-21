@@ -243,6 +243,54 @@
       maxZoom: 18
     }).addTo(map);
 
+    // create the sidebar instance and add it to the map
+    var sidebar = L.control.sidebar({
+        container: 'sidebar'
+      })
+      .addTo(map)
+      .open('home');
+
+    // add panels dynamically to the sidebar
+    sidebar
+      .addPanel({
+        id: 'js-api',
+        tab: '<i class="fa fa-gear"></i>',
+        title: 'JS API',
+        pane: '<p>The Javascript API allows to dynamically create or modify the panel state.<p/><p><button onclick="sidebar.enablePanel(\'mail\')">enable mails panel</button><button onclick="sidebar.disablePanel(\'mail\')">disable mails panel</button></p><p><button onclick="addUser()">add user</button></b>',
+      })
+      // add a tab with a click callback, initially disabled
+      .addPanel({
+        id: 'mail',
+        tab: '<i class="fa fa-envelope"></i>',
+        title: 'Messages',
+        button: function() {
+          alert('opened via JS callback')
+        },
+        disabled: true,
+      })
+
+    // be notified when a panel is opened
+    sidebar.on('content', function(ev) {
+      switch (ev.id) {
+        case 'autopan':
+          sidebar.options.autopan = true;
+          break;
+        default:
+          sidebar.options.autopan = false;
+      }
+    });
+
+    var userid = 0
+
+    function addUser() {
+      sidebar.addPanel({
+        id: 'user' + userid++,
+        tab: '<i class="fa fa-user"></i>',
+        title: 'User Profile ' + userid,
+        pane: '<p>user ipsum dolor sit amet</p>',
+      });
+    }
+
     var locations = new L.geoJSON(json_locaties, {
       onEachFeature: function(feature, layer) {
         layer.bindPopup('<h2> ' + feature.properties.Name + ' </h2><b> ' + feature.properties.Date + ' </b>');
@@ -311,85 +359,85 @@
     }).addTo(map);
 
     var Eidfjord = new L.geoJSON(json_eidfjord, {
-      style: routeStyle
-    })
-    .on('mouseover', function (e) {
+        style: routeStyle
+      })
+      .on('mouseover', function(e) {
         e.target.setStyle({
           color: '#666',
           weight: '5'
         });
-    })
-    .on('mouseout', function (e) {
+      })
+      .on('mouseout', function(e) {
         e.target.setStyle({
           color: '#9a362d',
           weight: '4',
           opacity: '0.9'
         });
-    })
+      })
 
     var Rosendal = new L.geoJSON(json_rosendal, {
-      style: routeStyle
-    })
-    .on('mouseover', function (e) {
+        style: routeStyle
+      })
+      .on('mouseover', function(e) {
         e.target.setStyle({
           color: '#666',
           weight: '5'
         });
-    })
-    .on('mouseout', function (e) {
+      })
+      .on('mouseout', function(e) {
         e.target.setStyle({
           color: '#9a362d',
           weight: '4',
           opacity: '0.9'
         });
-    })
+      })
 
     var Herdla = new L.geoJSON(json_herdla, {
-      style: routeStyle
-    })
-    .on('mouseover', function (e) {
+        style: routeStyle
+      })
+      .on('mouseover', function(e) {
         e.target.setStyle({
           color: '#666',
           weight: '5'
         });
-    })
-    .on('mouseout', function (e) {
+      })
+      .on('mouseout', function(e) {
         e.target.setStyle({
           color: '#9a362d',
           weight: '4',
           opacity: '0.9'
         });
         if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-        layer.bringToFront();
-    }
-    })
+          layer.bringToFront();
+        }
+      })
 
     var Gaulat = new L.geoJSON(json_gaulat, {
-      style: routeStyle
-    })
-    .on('mouseover', function (e) {
+        style: routeStyle
+      })
+      .on('mouseover', function(e) {
         e.target.setStyle({
           color: '#666',
           weight: '5'
         });
-    })
-    .on('mouseout', function (e) {
+      })
+      .on('mouseout', function(e) {
         e.target.setStyle({
           color: '#9a362d',
           weight: '4',
           opacity: '0.9'
         });
-    })
+      })
     //var routeGroup = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat]);
 
     var routes = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat], {}).addTo(map);
 
-    var sidebar = L.control.sidebar({
+    /*var sidebar = L.control.sidebar({
       autopan: false, // whether to maintain the centered map point when opening the sidebar
       closeButton: true, // whether t add a close button to the panes
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left', // left or right
-    }).addTo(map);
+    }).addTo(map);*/
   </script>
 
 </body>
