@@ -95,10 +95,9 @@ $(document).ready(function() {
 
   var map = L.map("map", mapOptions).setView([60.3736, 5.3367], 11);
 
-  var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-    subdomains: 'abcd',
-    maxZoom: 18
+  //Controls
+  L.control.scale({
+    position: 'bottomright'
   }).addTo(map);
 
   map.on('click', function() {
@@ -113,13 +112,28 @@ $(document).ready(function() {
     }).addTo(map)
     .open('home');
 
-  L.control.scale({
-    position: 'bottomright'
-  }).addTo(map);
-
   var zoom_bar = new L.Control.ZoomBar({
     position: 'bottomright',
   }).addTo(map);
+
+  //Maps
+  var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 18
+  }).addTo(map);
+
+  var Thunderforest_Outdoors = L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
+    attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    apikey: '<c5d432b20da2466caedd226d7e2cf400>',
+    maxZoom: 18
+  });
+
+  var Thunderforest_Transport = L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={apikey}', {
+    attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    apikey: '<your apikey>',
+    maxZoom: 18
+  });
 
   /*var locations = new L.geoJSON(json_locaties, {
     onEachFeature: function(feature, layer) {
