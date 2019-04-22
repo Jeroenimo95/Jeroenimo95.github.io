@@ -113,6 +113,14 @@ $(document).ready(function() {
     }).addTo(map)
     .open('home');
 
+  L.control.scale({
+    position: 'bottomright'
+  }).addTo(map);
+
+  var zoom_bar = new L.Control.ZoomBar({
+    position: 'bottomright',
+  }).addTo(map);
+
   /*var locations = new L.geoJSON(json_locaties, {
     onEachFeature: function(feature, layer) {
       layer.bindPopup('<h2> ' + feature.properties.Name + ' </h2><b> ' + feature.properties.Date + ' </b>');
@@ -261,10 +269,6 @@ $(document).ready(function() {
     onEachFeature: onEachFeature
   }).addTo(map);
 
-  map.on('click', function(e) {
-    sidebar.open('userinfo');
-  });
-
   var Rosendal = new L.geoJSON(json_rosendal, {
     style: routeStyle,
     onEachFeature: onEachFeature
@@ -297,12 +301,6 @@ $(document).ready(function() {
       pane: '<p>The Javascript API allows to dynamically create or modify the panel state.<p/><p><button onclick="sidebar.enablePanel(\'mail\')">enable mails panel</button><button onclick="sidebar.disablePanel(\'mail\')">disable mails panel</button></p><p><button onclick="addUser()">add user</button></b>',
     })*/
 
-  L.control.scale({
-    position: 'bottomright'
-  }).addTo(map);
 
-  var zoom_bar = new L.Control.ZoomBar({
-    position: 'bottomright',
-  }).addTo(map);
 
 });
