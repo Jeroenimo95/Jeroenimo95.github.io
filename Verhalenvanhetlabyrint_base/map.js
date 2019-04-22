@@ -31,6 +31,10 @@ $(document).ready(function () {
     var map = L.map("map", mapOptions).setView([51.6050, 5.4128], 11);
 
     //Controls
+    map.on('click', function() {
+      sidebar.close();
+    });
+
     var sidebar = L.control.sidebar({
             container: 'sidebar'
         })
