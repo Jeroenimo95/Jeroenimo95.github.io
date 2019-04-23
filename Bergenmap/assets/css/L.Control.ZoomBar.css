@@ -1,11 +1,11 @@
 .leaflet-control-zoom-to-start {
-    background: #fff url(images/zoom-to-start-26.png) no-repeat 0 0;
+    background: #fff url(../../images/img/zoom-to-start-26-white.png) no-repeat 0 0;
     background-size: 30px 30px
 }
 
 .leaflet-control-zoom-to-area {
-    background: #fff url(images/zoom-to-area-26.png) no-repeat 0 0;
-    background-size: 30px 30px
+    background: #fff url(../../images/img/zoom-to-area-26-white.png) no-repeat 0 0;
+    background-size: 30px 30px;
 }
 
 .leaflet-container.crosshair-cursor-enabled {
@@ -15,10 +15,10 @@
 @media(-webkit-min-device-pixel-ratio:2),
 (min-resolution:192dpi) {
     .leaflet-control-zoom-to-start {
-        background-image: #fff url(images/zoom-to-start-26.png)
+        background-image: #fff url(../../images/img/zoom-to-start-26-white.png)
     }
 
     .leaflet-control-zoom-to-area {
-        background-image: #fff url(images/zoom-to-area-26.png)
+        background-image: #fff url(../../images/img/zoom-to-area-26-white.png)
     }
 }
