@@ -132,23 +132,6 @@ $(document).ready(function() {
     sidebar.close();
   });
 
-  //Controls
-  /*L.control.scale({
-    position: 'bottomright'
-  }).addTo(map);*/
-
-  var sidebar = L.control.sidebar({
-      autopan: true, // whether to maintain the centered map point when opening the sidebar
-      closeButton: true, // whether t add a close button to the panes
-      container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
-      position: 'left', // left or right
-    }).addTo(map)
-    .close();
-
-  /*var zoom_bar = new L.Control.ZoomBar({
-    position: 'bottomright',
-  }).addTo(map);*/
-
   //Maps
   var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -460,22 +443,22 @@ $(document).ready(function() {
     sidebar.open('roadtrip');
   });
 
-  //var routeGroup = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat]);
-
   //Controls
-  /*var sidebar = L.control.sidebar({
-    autopan: true, // whether to maintain the centered map point when opening the sidebar
-    closeButton: true, // whether t add a close button to the panes
-    container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
-    position: 'left', // left or right
-  }).addTo(map);
-  sidebar
-    .addPanel({
-      id: 'js-api',
-      tab: '<i class="fa fa-gear"></i>',
-      title: 'JS API',
-      pane: '<p>The Javascript API allows to dynamically create or modify the panel state.<p/><p><button onclick="sidebar.enablePanel(\'mail\')">enable mails panel</button><button onclick="sidebar.disablePanel(\'mail\')">disable mails panel</button></p><p><button onclick="addUser()">add user</button></b>',
-    })*/
+  /*L.control.scale({
+    position: 'bottomright'
+  }).addTo(map);*/
+
+  var sidebar = L.control.sidebar({
+      autopan: true, // whether to maintain the centered map point when opening the sidebar
+      closeButton: true, // whether t add a close button to the panes
+      container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
+      position: 'left', // left or right
+    }).addTo(map)
+    .close();
+
+  /*var zoom_bar = new L.Control.ZoomBar({
+    position: 'bottomright',
+  }).addTo(map);*/
 
 
 
