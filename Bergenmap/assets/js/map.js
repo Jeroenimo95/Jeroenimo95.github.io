@@ -18,6 +18,41 @@ $(document).ready(function() {
     });
   }
 
+  function highlightFeature(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+      weight: 5,
+      color: '#436877',
+    });
+
+    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+      layer.bringToFront();
+    }
+  }
+
+  function resetHighlight(e) {
+    var layer = e.target;
+
+    layer.setStyle({
+      weight: 5,
+      opacity: 0.9,
+      color: '#7ca5b6',
+    });
+  }
+
+  function zoomToFeature(e) {
+    map.flyToBounds(e.target.getBounds());
+  }
+
+  function onEachFeature(feature, layer) {
+    layer.on({
+      mouseover: highlightFeature,
+      mouseout: resetHighlight,
+      click: zoomToFeature,
+    });
+  }
+
   //Controls
   var routeStyle = {
     "color": "#7ca5b6",
@@ -93,16 +128,14 @@ $(document).ready(function() {
     zoomControl: false,
   };
 
-  var map = L.map("map", mapOptions).setView([60.3736, 5.3367], 11);
+  var map = L.map("map", mapOptions).setView([60.3736, 5.3367], 11).on('click', function() {
+    sidebar.close();
+  });
 
   //Controls
   L.control.scale({
     position: 'bottomright'
   }).addTo(map);
-
-  map.on('click', function() {
-    sidebar.close();
-  });
 
   var sidebar = L.control.sidebar({
       autopan: true, // whether to maintain the centered map point when opening the sidebar
@@ -110,7 +143,7 @@ $(document).ready(function() {
       container: 'sidebar', // the DOM container or #ID of a predefined sidebar container that should be used
       position: 'left', // left or right
     }).addTo(map)
-    .open('home');
+    .close();
 
   var zoom_bar = new L.Control.ZoomBar({
     position: 'bottomright',
@@ -121,19 +154,19 @@ $(document).ready(function() {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
     subdomains: 'abcd',
     maxZoom: 18
-  }).addTo(map);
+  });
 
   var Thunderforest_Outdoors = L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
     attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    apikey: '<c5d432b20da2466caedd226d7e2cf400>',
+    apikey: 'c5d432b20da2466caedd226d7e2cf400',
     maxZoom: 18
   });
 
   var Thunderforest_Transport = L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={apikey}', {
     attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    apikey: '<your apikey>',
+    apikey: 'c5d432b20da2466caedd226d7e2cf400',
     maxZoom: 18
-  });
+  }).addTo(map);
 
   /*var locations = new L.geoJSON(json_locaties, {
     onEachFeature: function(feature, layer) {
@@ -235,7 +268,7 @@ $(document).ready(function() {
       });
     },
     pointToLayer: function(feature, latLng) {
-      if (feature.properties.Categorie == "routes") {
+      if (feature.properties.Categorie == "Routes") {
         return new L.Marker(latLng, {
           icon: routeMarker
         });
@@ -267,7 +300,7 @@ $(document).ready(function() {
       });
     },
     pointToLayer: function(feature, latLng) {
-      if (feature.properties.Categorie == "brake") {
+      if (feature.properties.Categorie == "Brake") {
         return new L.Marker(latLng, {
           icon: brakeMarker
         });
@@ -395,48 +428,13 @@ $(document).ready(function() {
       });
     },
     pointToLayer: function(feature, latLng) {
-      if (feature.properties.Categorie == "fossen") {
+      if (feature.properties.Categorie == "Fossen") {
         return new L.Marker(latLng, {
           icon: fossenMarker
         });
       }
     }
   }).addTo(map);
-
-  function highlightFeature(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-      weight: 5,
-      color: '#436877',
-    });
-
-    if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-      layer.bringToFront();
-    }
-  }
-
-  function resetHighlight(e) {
-    var layer = e.target;
-
-    layer.setStyle({
-      weight: 5,
-      opacity: 0.9,
-      color: '#7ca5b6',
-    });
-  }
-
-  function zoomToFeature(e) {
-    map.flyToBounds(e.target.getBounds());
-  }
-
-  function onEachFeature(feature, layer) {
-    layer.on({
-      mouseover: highlightFeature,
-      mouseout: resetHighlight,
-      click: zoomToFeature,
-    });
-  }
 
   var Eidfjord = new L.geoJSON(json_eidfjord, {
     style: routeStyle,
