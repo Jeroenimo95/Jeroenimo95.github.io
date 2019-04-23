@@ -133,9 +133,9 @@ $(document).ready(function() {
   });
 
   //Controls
-  L.control.scale({
+  /*L.control.scale({
     position: 'bottomright'
-  }).addTo(map);
+  }).addTo(map);*/
 
   var sidebar = L.control.sidebar({
       autopan: true, // whether to maintain the centered map point when opening the sidebar
@@ -145,9 +145,9 @@ $(document).ready(function() {
     }).addTo(map)
     .close();
 
-  var zoom_bar = new L.Control.ZoomBar({
+  /*var zoom_bar = new L.Control.ZoomBar({
     position: 'bottomright',
-  }).addTo(map);
+  }).addTo(map);*/
 
   //Maps
   var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
