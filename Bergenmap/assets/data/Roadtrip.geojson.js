@@ -1,4 +1,4 @@
-var json_routes = {
+var json_roadtrip = {
   "type": "FeatureCollection",
   "name": "Roadtrip 15_4",
   "crs": {
@@ -7438,6 +7438,6 @@ var json_routes = {
         ]
       }
     },
-  
+
   ]
 };

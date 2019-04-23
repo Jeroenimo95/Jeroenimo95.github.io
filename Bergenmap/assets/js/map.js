@@ -211,24 +211,88 @@ $(document).ready(function() {
     }
   }).addTo(map);*/
 
-  var hiking = new L.geoJSON(json_hiking, {
+  var routes = new L.geoJSON(json_routes, {
     onEachFeature: function(feature, layer) {
-      layer.bindPopup('<h2> ' + feature.properties.Name + ' </h2><b> ' + feature.properties.Date + ' </b>');
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
       layer.on('mouseover', function() {
         layer.openPopup();
       });
       layer.on('mouseout', function() {
         layer.closePopup();
       });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
       layer.on({
         click: function populate() {
-          document.getElementById('hikingdiv').innerHTML = "<h1>" + feature.properties.Name + "</h1><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+          document.getElementById('roadtripdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br /><b>" + feature.properties.foto1 + "<br /><b>" + feature.properties.foto2 + "<br /><b>" + feature.properties.foto3;
         }
+      });
+      layer.on('click', function(e) {
+        sidebar.open('roadtrip');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "routes") {
+        return new L.Marker(latLng, {
+          icon: routeMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var brake = new L.geoJSON(json_brake, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
       });
       layer.on('click', function(e) {
         map.flyTo(e.latlng, 13, {
           duration: 1.1
         });
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('brakediv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+        }
+      });
+      layer.on('click', function(e) {
+        sidebar.open('brake');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "brake") {
+        return new L.Marker(latLng, {
+          icon: brakeMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var hiking = new L.geoJSON(json_hiking, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
+      });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('hikingdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><b>" + feature.properties.Date + "<br /><b>" + feature.properties.foto1 + "<br /><b>" + feature.properties.foto2 + "<br /><b>" + feature.properties.foto3 ;
+        }
       });
       layer.on('click', function(e) {
         sidebar.open('hiking');
@@ -238,6 +302,102 @@ $(document).ready(function() {
       if (feature.properties.Categorie == "Wandeling") {
         return new L.Marker(latLng, {
           icon: wandelMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var siteseeing = new L.geoJSON(json_siteseeing, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('siteseeingdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+        }
+      });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
+      layer.on('click', function(e) {
+        sidebar.open('siteseeing');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "Siteseeing") {
+        return new L.Marker(latLng, {
+          icon: siteMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var monumenten = new L.geoJSON(json_monumenten, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('monumentdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+        }
+      });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
+      layer.on('click', function(e) {
+        sidebar.open('monument');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "Monument") {
+        return new L.Marker(latLng, {
+          icon: monumentMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var fossen = new L.geoJSON(json_fossen, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('fossendiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+        }
+      });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
+      layer.on('click', function(e) {
+        sidebar.open('fossen');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "fossen") {
+        return new L.Marker(latLng, {
+          icon: fossenMarker
         });
       }
     }
@@ -274,7 +434,7 @@ $(document).ready(function() {
     layer.on({
       mouseover: highlightFeature,
       mouseout: resetHighlight,
-      click: zoomToFeature
+      click: zoomToFeature,
     });
   }
 
@@ -297,6 +457,10 @@ $(document).ready(function() {
     style: routeStyle,
     onEachFeature: onEachFeature
   }).addTo(map);
+
+  Herdla.on('click', function() {
+    sidebar.open('roadtrip');
+  });
 
   //var routeGroup = L.layerGroup([Eidfjord, Rosendal, Herdla, Gaulat]);
 

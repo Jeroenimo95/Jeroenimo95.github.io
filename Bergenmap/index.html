@@ -15,8 +15,13 @@
   <link rel="stylesheet" href="assets/css/leaflet.awesome-markers.css">
   <link rel="stylesheet" href="assets/css/leaflet-sidebar.css">
   <link rel="stylesheet" href="assets/css/L.Control.Zoombar.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script>
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -25,13 +30,16 @@
   <script src="assets/js/L.Control.Zoombar.js" charset="utf-8"></script>
 
   <script src="assets/js/map.js" charset="utf-8"></script>
-  
+
   <script src="assets/data/locaties.geojson.js" charset="utf-8"></script>
   <script src="assets/data/hiking.geojson.js" charset="utf-8"></script>
-  <script src="assets/data/monnumenten.geojson.js" charset="utf-8"></script>
-  <script src="assets/data/sitessing.geojson.js" charset="utf-8"></script>
+  <script src="assets/data/monumenten.geojson.js" charset="utf-8"></script>
+  <script src="assets/data/siteseeing.geojson.js" charset="utf-8"></script>
+  <script src="assets/data/brake.geojson.js" charset="utf-8"></script>
+  <script src="assets/data/fossen.geojson.js" charset="utf-8"></script>
+  <script src="assets/data/routes.geojson.js" charset="utf-8"></script>
 
-  <script src="assets/data/Roadtrip.geojson.js" charset="utf-8"></script>
+
   <script src="assets/data/Eidfjord.geojson.js" charset="utf-8"></script>
   <script src="assets/data/Rosendal.geojson.js" charset="utf-8"></script>
   <script src="assets/data/Herdla.geojson.js" charset="utf-8"></script>
@@ -85,14 +93,17 @@
       <ul role="tablist">
         <!-- top aligned tabs -->
         <li><a href="#home" role="tab"><i class="fa fa-home"></i></a></li>
+        <li><a href="#roadtrip" role="tab"><i class="fa fa-route"></i></a></li>
+        <li><a href="#brake" role="tab"><i class="fa fa-parking"></i></a></li>
         <li><a href="#hiking" role="tab"><i class="fa fa-hiking"></i></a></li>
         <li><a href="#siteseeing" role="tab"><i class="fa fa-binoculars"></i></a></li>
         <li><a href="#monument" role="tab"><i class="fa fa-university"></i></a></li>
+        <li><a href="#fossen" role="tab"><i class="fa fa-water"></i></a></li>
       </ul>
 
       <ul role="tablist">
         <!-- bottom aligned tabs -->
-        <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
+        <li><a href="https://jeroenenesmee.wixsite.com/followustonorway" role="tab"><i class="fa fa-blog"></i></a></li>
       </ul>
     </div>
 
@@ -103,8 +114,37 @@
           Start
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
-        <div id="homediv" class="leaflet-sidebar-text">
+        <p>
+          Het Hoge Noorden riep ons en wij antwoordden! Een nieuw avontuur ligt voor
+          ons. Weg van de veilige haven in het kleine Nederland en op naar een
+          daadwerkelijke haven in het adembenemende Bergen! Volg ons terwijl we vier
+          maanden lang een proefje mogen nemen van de Noorse cultuur en het ruige
+          landschap. Geen polders meer voor ons, maar weergaloze bergen en onstuimige
+          watervallen.
+        </p>
+        <div id="homediv">
         </div>
+      </div>
+
+      <div class="leaflet-sidebar-pane" id="roadtrip">
+        <h1 class="leaflet-sidebar-header">
+          Roadtrips
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <div id="roadtripdiv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+      </div>
+
+      <div class="leaflet-sidebar-pane" id="brake">
+        <h1 class="leaflet-sidebar-header">
+          Mooie Pauze Stops
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <div id="brakediv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
       </div>
 
       <div class="leaflet-sidebar-pane" id="hiking">
@@ -112,8 +152,10 @@
           Wandelingen
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
-        <div id="hikingdiv" class="leaflet-sidebar-text">
+        <div id="hikingdiv">
         </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
       </div>
 
     <div class="leaflet-sidebar-pane" id="siteseeing">
@@ -121,8 +163,10 @@
         Siteseeing
         <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
       </h1>
-      <div id="siteseeingdiv" class="leaflet-sidebar-text">
+      <div id="siteseeingdiv">
       </div>
+      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
     </div>
 
     <div class="leaflet-sidebar-pane" id="monument">
@@ -130,10 +174,23 @@
         Monumemten
         <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
       </h1>
-      <div id="externaldiv" class="leaflet-sidebar-text">
+      <div id="monumentdiv">
       </div>
+      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
 
     </div>
+
+    <div class="leaflet-sidebar-pane" id="fossen">
+      <h1 class="leaflet-sidebar-header">
+        Watervallen 'Fossen'
+        <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+      </h1>
+      <div id="fossendiv">
+      </div>
+      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
+    </div>
+
   </div>
   </div>
 

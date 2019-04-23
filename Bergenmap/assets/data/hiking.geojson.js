@@ -8,7 +8,10 @@ var json_hiking = {
         "Date": "07-04-2019",
         "Place": "Bergen",
         "Categorie": "Wandeling",
-        "CustomID": "Hike1"
+        "CustomID": "Hike1",
+        "foto1": "<img src = 'images/fulls/ulriken/Ulriken_bergen.jpg' style= 'width: 100%'/>",
+        "foto2": "<img src = 'images/fulls/ulriken/Ulriken_top.jpg' style= 'width: 100%'/>",
+        "foto3": "<img src = 'images/fulls/ulriken/Ulriken_trappen.jpg' style= 'width: 100%'/>",
       },
       "geometry": {
         "type": "Point",
