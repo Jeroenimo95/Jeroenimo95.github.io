@@ -1,7 +1,6 @@
 var json_locaties = {
   "type": "FeatureCollection",
-  "features": [
-    {
+  "features": [{
       "type": "Feature",
       "properties": {
         "Name": "Vikingen Kerk",

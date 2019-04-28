@@ -307,7 +307,7 @@ $(document).ready(function() {
       });
       layer.on({
         click: function populate() {
-          document.getElementById('hikingdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><b>" + feature.properties.Date + "<br /><b>" + feature.properties.foto1 + "<br /><b>" + feature.properties.foto2 + "<br /><b>" + feature.properties.foto3 ;
+          document.getElementById('hikingdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><b>" + feature.properties.Date + "<br /><b>" + feature.properties.foto1 + "<br /><b>" + feature.properties.foto2 + "<br /><b>" + feature.properties.foto3;
         }
       });
       layer.on('click', function(e) {
@@ -459,6 +459,39 @@ $(document).ready(function() {
   var zoom_bar = new L.Control.ZoomBar({
     position: 'bottomright',
   }).addTo(map);
+
+  var geoLayer = L.geoJson(json_locaties).addTo(map);
+  var geoList = new L.Control.GeoJSONSelector(geoLayer, {
+    zoomToLayer: true,
+    listDisabled: true,
+    activeListFromLayer: true,
+    activeLayerFromList: true,
+    listOnlyVisibleLayers: true
+  }).addTo(map);
+  geoList.on('selector:change', function(e) {
+    var jsonObj = $.parseJSON(JSON.stringify(e.layers[0].feature.properties));
+    var html = 'Selection:<br /><table border="1">';
+    $.each(jsonObj, function(key, value) {
+      html += '<tr>';
+      html += '<td>' + key.replace(":", " ") + '</td>';
+      html += '<td>' + value + '</td>';
+      html += '</tr>';
+    });
+    html += '</table>';
+    $('.selection').html(html);
+  });
+
+  map.addControl(function() {
+    var c = new L.Control({
+      position: 'bottomright'
+    });
+    c.onAdd = function(map) {
+      return L.DomUtil.create('pre', 'selection');
+    };
+    return c;
+  }());
+
+
 
 
 
