@@ -122,8 +122,20 @@ $(document).ready(function() {
     iconColor: 'white'
   });
 
+  var a320icon = new L.Icon({
+    iconUrl: 'assets/icons/sas.png',
+    iconSize: [55, 74],
+    iconAnchor: [27, 37]
+  });
+
+  var a320linksicon = new L.Icon({
+    iconUrl: 'assets/icons/saslinks.png',
+    iconSize: [74, 55],
+    iconAnchor: [37, 27]
+  });
+
   var mapOptions = {
-    minZoom: 8,
+    minZoom: 3,
     maxZoom: 24,
     zoomControl: false,
   };
@@ -149,6 +161,114 @@ $(document).ready(function() {
     attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     apikey: 'c5d432b20da2466caedd226d7e2cf400',
     maxZoom: 18
+  }).addTo(map);
+
+  var vlucht1 = [
+    [52.30365040861058, 4.7756195068359375],
+    [52.255339294085786, 4.640007019042969],
+    [52.232005085482086, 4.43572998046875],
+    [52.32358963210519, 4.30938720703125],
+    [52.48696169336169, 4.290161132812499],
+    [52.7728625816634, 4.4439697265625],
+    [53.15335906512407, 4.9163818359375],
+    [54.36775852406841, 5.9765625],
+    [55.665193184436035, 6.61376953125],
+    [57.38578314962142, 8.06396484375],
+    [58.52812515905843, 9.7119140625],
+    [59.26307320436287, 10.42877197265625],
+    [59.81168490365651, 10.7830810546875],
+    [60.06484046010452, 11.00555419921875],
+    [60.18472072976749, 11.073875427246093],
+    [60.20929260522097, 11.087779998779295],
+  ];
+
+  var vlucht2 = [
+    [60.18011145467136, 11.110610961914062],
+    [60.21696754379138, 11.128463745117187],
+    [60.27591932315661, 11.1016845703125],
+    [60.32898722274035, 10.976715087890623],
+    [60.326947742998414, 7.6025390625],
+    [60.133299237518216, 5.718383789062499],
+    [60.16952474447549, 5.423126220703125],
+    [60.23844781827411, 5.240306854248047],
+    [60.28008963247837, 5.222797393798827],
+    [60.30022091453318, 5.215780735015869]
+  ];
+
+  var amsOsl = L.Marker.movingMarker(vlucht1,
+    [3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000], {
+      icon: a320icon,
+      autostart: true,
+      loop: true
+    }).addTo(map);
+  L.polyline(vlucht1, {
+    color: 'steelblue',
+    dashArray: "25 15",
+  }).addTo(map);
+
+  amsOsl.on('end', function() {
+    amsOsl.bindPopup('<b>On My Way to Vikinghunting!</b>', {
+        closeOnClick: false
+      })
+      .openPopup();
+  });
+
+  var oslBrg = L.Marker.movingMarker(vlucht2,
+    [3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000], {
+      icon: a320linksicon,
+      autostart: true,
+      loop: true
+    }).addTo(map);
+  L.polyline(vlucht2, {
+    color: 'steelblue',
+    dashArray: "25 10",
+  }).addTo(map);
+
+  oslBrg.on('end', function() {
+    oslBrg.bindPopup('<b>On Our Way to Fjordenhunting!</b>', {
+        closeOnClick: false
+      })
+      .openPopup();
+  });
+
+  //Custom info
+  var geojson;
+
+  var info = L.control();
+
+  info.onAdd = function(map) {
+    this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+    this.update();
+    return this._div;
+  };
+
+  // method that we will use to update the control based on feature properties passed
+  info.update = function(props) {
+    this._div.innerHTML = '<h4>Marker info</h4>' + (props ?
+      '<b>' + props.Name + '</b><br />' + props.Date + ' people / mi<sup>2</sup>' :
+      'Hover over een Marker');
+  };
+
+  info.addTo(map);
+
+  function highlightFeature1(e) {
+    info.update(layer.feature.properties);
+  }
+
+  function resetHighlight1(e) {
+    info.update();
+  }
+
+  function onEachFeature1(feature, layer) {
+    layer.on({
+      mouseover: highlightFeature1,
+      mouseout: resetHighlight1,
+      click: zoomToFeature
+    });
+  }
+
+  geojson = L.geoJson(locatieData, {
+    onEachFeature: onEachFeature1
   }).addTo(map);
 
   /*var locations = new L.geoJSON(json_locaties, {
@@ -459,40 +579,5 @@ $(document).ready(function() {
   var zoom_bar = new L.Control.ZoomBar({
     position: 'bottomright',
   }).addTo(map);
-
-  var geoLayer = L.geoJson(json_locaties).addTo(map);
-  var geoList = new L.Control.GeoJSONSelector(geoLayer, {
-    zoomToLayer: true,
-    listDisabled: true,
-    activeListFromLayer: true,
-    activeLayerFromList: true,
-    listOnlyVisibleLayers: true
-  }).addTo(map);
-  geoList.on('selector:change', function(e) {
-    var jsonObj = $.parseJSON(JSON.stringify(e.layers[0].feature.properties));
-    var html = 'Selection:<br /><table border="1">';
-    $.each(jsonObj, function(key, value) {
-      html += '<tr>';
-      html += '<td>' + key.replace(":", " ") + '</td>';
-      html += '<td>' + value + '</td>';
-      html += '</tr>';
-    });
-    html += '</table>';
-    $('.selection').html(html);
-  });
-
-  map.addControl(function() {
-    var c = new L.Control({
-      position: 'bottomright'
-    });
-    c.onAdd = function(map) {
-      return L.DomUtil.create('pre', 'selection');
-    };
-    return c;
-  }());
-
-
-
-
 
 });

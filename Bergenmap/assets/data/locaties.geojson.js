@@ -1,4 +1,4 @@
-var json_locaties = {
+var locatieData = {
   "type": "FeatureCollection",
   "features": [{
       "type": "Feature",

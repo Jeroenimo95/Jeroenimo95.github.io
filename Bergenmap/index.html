@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="assets/css/L.Control.Zoombar.css">
   <link rel="stylesheet" href="assets/css/leaflet-geojson-selector.css">
 
-  <link rel="stylesheet" href="assets/css/style.css">
+  <!--<link rel="stylesheet" href="assets/css/style.css">-->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
@@ -27,6 +27,7 @@
   <script src="assets/js/leaflet-sidebar.js" charset="utf-8"></script>
   <script src="assets/js/L.Control.Zoombar.js" charset="utf-8"></script>
   <script src="assets/js/leaflet-geojson-selector.js" charset="utf-8"></script>
+  <script src="assets/js/MovingMarker.js" charset="utf-8"></script>
 
   <script src="assets/js/map.js" charset="utf-8"></script>
   <!--<script src="assets/js/mapconcept.js" charset="utf-8"></script>-->
@@ -83,7 +84,21 @@
       border: 1px solid rgba(0, 0, 0, .15);
       color: #375662;
     }
-    </style>
+
+    .info {
+      padding: 6px 8px;
+      font: 14px/16px Arial, Helvetica, sans-serif;
+      background: white;
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    .info h4 {
+      margin: 0 0 5px;
+      color: #777;
+    }
+  </style>
 </head>
 
 <body>
@@ -95,6 +110,7 @@
         <li><a href="#home" role="tab"><i class="fa fa-home"></i></a></li>
         <li><a href="#roadtrip" role="tab"><i class="fa fa-route"></i></a></li>
         <li><a href="#brake" role="tab"><i class="fa fa-parking"></i></a></li>
+        <li><a href="#transport" role="tab"><i class="fa fa-ship"></i></a></li>
         <li><a href="#hiking" role="tab"><i class="fa fa-hiking"></i></a></li>
         <li><a href="#siteseeing" role="tab"><i class="fa fa-binoculars"></i></a></li>
         <li><a href="#monument" role="tab"><i class="fa fa-university"></i></a></li>
@@ -122,6 +138,10 @@
           landschap. Geen polders meer voor ons, maar weergaloze bergen en onstuimige
           watervallen.
         </p>
+        <div>
+          <h3></h3>
+          <hr>
+        </div>
         <div id="homediv">
         </div>
       </div>
@@ -131,6 +151,10 @@
           Roadtrips
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
+        <div>
+          <h3>Route info</h3>
+          <hr size="3" noshade>
+        </div>
         <div id="roadtripdiv">
         </div>
         <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
@@ -141,7 +165,26 @@
           Mooie Pauze Stops
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
+        <div>
+          <h3>Pauzemomenten info</h3>
+          <hr size="3" noshade>
+        </div>
         <div id="brakediv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
+      </div>
+
+      <div class="leaflet-sidebar-pane" id="transport">
+        <h1 class="leaflet-sidebar-header">
+          Mooie Pauze Stops
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <div>
+          <h3>Pauzemomenten info</h3>
+          <hr size="3" noshade>
+        </div>
+        <div id="transportdiv">
         </div>
         <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
 
@@ -152,6 +195,8 @@
           Wandelingen
           <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
         </h1>
+        <h3>Wandeling info</h3>
+        <hr size="3" noshade>
         <div id="hikeselectdiv">
         </div>
         <div id="hikingdiv">
@@ -160,40 +205,46 @@
 
       </div>
 
-    <div class="leaflet-sidebar-pane" id="siteseeing">
-      <h1 class="leaflet-sidebar-header">
-        Siteseeing
-        <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
-      </h1>
-      <div id="siteseeingdiv">
+      <div class="leaflet-sidebar-pane" id="siteseeing">
+        <h1 class="leaflet-sidebar-header">
+          Siteseeing
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <h3>Site info</h3>
+        <hr size="3" noshade>
+        <div id="siteseeingdiv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
       </div>
-      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
+      <div class="leaflet-sidebar-pane" id="monument">
+        <h1 class="leaflet-sidebar-header">
+          Monumemten
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <h3>Monument info</h3>
+        <hr size="3" noshade>
+        <div id="monumentdiv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
+      </div>
+
+      <div class="leaflet-sidebar-pane" id="fossen">
+        <h1 class="leaflet-sidebar-header">
+          Watervallen 'Fossen'
+          <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
+        </h1>
+        <h3>Waterval info</h3>
+        <hr size="3" noshade>
+        <div id="fossendiv">
+        </div>
+        <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
+
+      </div>
 
     </div>
-
-    <div class="leaflet-sidebar-pane" id="monument">
-      <h1 class="leaflet-sidebar-header">
-        Monumemten
-        <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
-      </h1>
-      <div id="monumentdiv">
-      </div>
-      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
-
-    </div>
-
-    <div class="leaflet-sidebar-pane" id="fossen">
-      <h1 class="leaflet-sidebar-header">
-        Watervallen 'Fossen'
-        <div class="leaflet-sidebar-close"><i class="fa fa-caret-left"></i></div>
-      </h1>
-      <div id="fossendiv">
-      </div>
-      <a href="https://jeroenimo95.github.io/Bergenmap/indexgallery.html" class="waves-effect waves-light btn white"><i class="material-icons right">arrow_forward</i><strong>Meer Foto's</strong></a>
-
-    </div>
-
-  </div>
   </div>
 
   <div id="map"></div>
