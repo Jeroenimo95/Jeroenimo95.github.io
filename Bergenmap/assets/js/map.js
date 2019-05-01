@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     layer.setStyle({
       weight: 5,
-      color: '#436877',
+      color: '#2B0F73',
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -37,7 +37,7 @@ $(document).ready(function() {
     layer.setStyle({
       weight: 5,
       opacity: 0.9,
-      color: '#7ca5b6',
+      color: '#436877',
     });
   }
 
@@ -53,15 +53,15 @@ $(document).ready(function() {
     });
   }
 
-  //Controls
+  //Styles
   var routeStyle = {
-    "color": "#7ca5b6",
+    "color": "#436877",
     "weight": 4,
     "opacity": 0.9
   };
 
   var highlightstyle = {
-    "color": '#436877',
+    "color": '#2B0F73',
     "weight": 5,
   };
 
@@ -154,14 +154,22 @@ $(document).ready(function() {
   var Thunderforest_Outdoors = L.tileLayer('https://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png?apikey={apikey}', {
     attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     apikey: 'c5d432b20da2466caedd226d7e2cf400',
+    minZoom:11,
     maxZoom: 18
-  });
+  }).addTo(map);
+
+  var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+    minZoom:0,
+    maxZoom: 12
+  }).addTo(map);
 
   var Thunderforest_Transport = L.tileLayer('https://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey={apikey}', {
     attribution: '&copy; <a href="http://www.thunderforest.com/">Thunderforest</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     apikey: 'c5d432b20da2466caedd226d7e2cf400',
+    minZoom:12,
     maxZoom: 18
-  }).addTo(map);
+  });
 
   var vlucht1 = [
     [52.30365040861058, 4.7756195068359375],
@@ -231,7 +239,7 @@ $(document).ready(function() {
       .openPopup();
   });
 
-  //Custom info
+  /*//Custom info
   var geojson;
 
   var info = L.control();
@@ -267,10 +275,10 @@ $(document).ready(function() {
     });
   }
 
-  geojson = L.geoJson(locatieData, {
+  geojson = new L.geoJson(locatieData, {
     onEachFeature: onEachFeature1
   }).addTo(map);
-
+  */
   /*var locations = new L.geoJSON(json_locaties, {
     onEachFeature: function(feature, layer) {
       layer.bindPopup('<h2> ' + feature.properties.Name + ' </h2><b> ' + feature.properties.Date + ' </b>');
@@ -406,6 +414,38 @@ $(document).ready(function() {
       if (feature.properties.Categorie == "Brake") {
         return new L.Marker(latLng, {
           icon: brakeMarker
+        });
+      }
+    }
+  }).addTo(map);
+
+  var transport = new L.geoJSON(json_routes, {
+    onEachFeature: function(feature, layer) {
+      layer.bindPopup('<h3> ' + feature.properties.Name + ' </h3><b> ' + feature.properties.Date + ' </b>');
+      layer.on('mouseover', function() {
+        layer.openPopup();
+      });
+      layer.on('mouseout', function() {
+        layer.closePopup();
+      });
+      layer.on('click', function(e) {
+        map.flyTo(e.latlng, 13, {
+          duration: 1.1
+        });
+      });
+      layer.on({
+        click: function populate() {
+          document.getElementById('transportdiv').innerHTML = "<h3>" + feature.properties.Name + "</h3><br>" + feature.properties.Date + "<br />" + feature.properties.foto1;
+        }
+      });
+      layer.on('click', function(e) {
+        sidebar.open('transport');
+      });
+    },
+    pointToLayer: function(feature, latLng) {
+      if (feature.properties.Categorie == "Transport") {
+        return new L.Marker(latLng, {
+          icon: transportMarker
         });
       }
     }
