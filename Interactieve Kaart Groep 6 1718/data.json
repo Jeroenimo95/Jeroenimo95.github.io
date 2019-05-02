@@ -1,0 +1,118 @@
+{
+    "type": "FeatureCollection",
+    "features": [{
+        "type": "Feature",
+        "properties": {
+            "Naam": "De Lankerenhof",
+            "Straat": "Lankerenseweg 18",
+            "plaats": "Voorthuizen",
+            "soort": "haan_dlm"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.570918851792155, 52.18140847403461]
+         }
+              
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "De Bokkenbunker",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok_dlm"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.164896594787452, 51.973423440838104]
+         }
+              
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "De Regte Heijden",
+            "Straat": "Oude Tilburgsebaan 12a",
+            "plaats": "Riel",
+            "soort": "stier_dlm"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.013338227414267, 51.511720257830895]
+        }
+
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "Gemeente Landerd",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.666711, 51.718125]
+         }
+              
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "Gemeente Alphen-Chaam",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [4.863403, 51.504618]
+         }
+              
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "Gemeente Haaren",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.229042, 51.607032]
+         }
+              
+    }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "Gemeente Leudal",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.906998, 51.246792]
+         }
+        
+     }, {
+        
+        "type": "Feature",
+        "properties": {
+            "Naam": "Gemeente Oirschot",
+            "Straat": "Lekdijk 54",
+            "plaats": "Schalkwijk",
+            "soort": "bok"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [5.294661,51.522664]
+         }
+         
+     },   
+                 
+                 
+    ]
+};

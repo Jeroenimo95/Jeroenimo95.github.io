@@ -1,0 +1,47 @@
+#kaart {
+          width: 100%;
+          height: 800px;
+          align-self: center
+}
+
+.custom-popup .leaflet-popup-content-wrapper {
+          background: #fff;
+          color: black;
+          font-size: 16px;
+          line-height: 24px;
+          border-radius: 9px;
+}
+
+.custom-popup .leaflet-popup-content-wrapper a {
+          color: black;
+}
+
+.custom-popup .leaflet-popup-tip-container {
+          width: 30px;
+          height: 15px;
+}
+
+.custom-popup .leaflet-popup-tip {
+          background: black;
+          border: none;
+          box-shadow: none;
+}
+.dlm_polyline { 
+  stroke: black;
+  fill: none;
+  stroke-dasharray: none; 
+  stroke-width: 5;  
+}
+.gang_polyline { 
+  stroke: black;
+  fill: none;
+  stroke-dasharray: none; 
+  stroke-width: 5;  
+}
+.catering_polyline { 
+  stroke: darkred;
+ border-radius: 10px;
+  fill: none;
+  stroke-dasharray: none; 
+  stroke-width: 5;  
+}
