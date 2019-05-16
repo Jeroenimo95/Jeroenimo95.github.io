@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "Planten",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "Name": "Rabarber", "Bot Name": "Rheum rhabarbarum", "Fam Name": "Duizendknoopfamilie", "Standpl": "Lichte en zonnige standplaats", "Grondsrt": "vruchtbare, goed doorlatende grond, die rijk is aan organische stoffen.", "Omschr": null, "Bijzonder": "Bloeit met lange witte bloeiaren die recht op de plant komen te staan.", "Gebruik": "De stelen van de rabarber." }, "geometry": { "type": "Point", "coordinates": [ 8196.932588470470364, -1377.593593927275151 ] } },
+{ "type": "Feature", "properties": { "id": 2, "Name": "Rozemarijn", "Bot Name": "Rosmarinus officinalis", "Fam Name": "Lamiaceae", "Standpl": null, "Grondsrt": null, "Omschr": null, "Bijzonder": null, "Gebruik": null }, "geometry": { "type": "Point", "coordinates": [ 3037.856467394237825, -5472.807831595436255 ] } },
+{ "type": "Feature", "properties": { "id": 3, "Name": "Gewone beuk", "Bot Name": "Fagus sylvatica", "Fam Name": null, "Standpl": "(zon, halfschaduw, schaduw; locatie)", "Grondsrt": "(voedselrijk;- arm; nat, droog, zand, klei, Leem)", "Omschr": "de woorden 'beuk' en 'boek' houden met elkaar verband", "Bijzonder": null, "Gebruik": "Beukennootjes" }, "geometry": { "type": "Point", "coordinates": [ 8245.983597439084406, -4217.102001999022832 ] } },
+{ "type": "Feature", "properties": { "id": 4, "Name": "Framboos", "Bot Name": "Rubus idaeus", "Fam Name": "Rosaceae", "Standpl": null, "Grondsrt": null, "Omschr": null, "Bijzonder": null, "Gebruik": "Om te eten" }, "geometry": { "type": "Point", "coordinates": [ 6092.09929250634832, -5695.172405586466084 ] } },
+{ "type": "Feature", "properties": { "id": 5, "Name": null, "Bot Name": null, "Fam Name": null, "Standpl": null, "Grondsrt": null, "Omschr": null, "Bijzonder": null, "Gebruik": null }, "geometry": { "type": "Point", "coordinates": [ 5773.812745421146246, -6706.713212761354953 ] } },
+{ "type": "Feature", "properties": { "id": 6, "Name": null, "Bot Name": null, "Fam Name": null, "Standpl": null, "Grondsrt": null, "Omschr": null, "Bijzonder": null, "Gebruik": null }, "geometry": { "type": "Point", "coordinates": [ 9506.049516721597683, -4217.102001999021013 ] } }
+]
+}
