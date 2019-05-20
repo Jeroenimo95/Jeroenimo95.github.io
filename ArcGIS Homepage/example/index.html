@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Demo ArcGIS online Homepage</title>
+
+  <style>
+    /* CSS is just for demo purposes, when implementing this template into your own arcgis online organisation, please use the seperate html files in the src or custom folders */
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+
+    html {
+      background: url(images/background/background.png) no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+    }
+
+    body {
+      font-family: 'PT Sans', sans-serif;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active {
+      color: rgba(232, 232, 232, .0);
+    }
+
+    .customContent {
+      margin-bottom: 35px;
+      text-align: center;
+    }
+
+    .groupItem img {
+      //background-color: rgba(232, 232, 232, .9);
+      -webkit-border-radius: 5px 5px 5px 5px;
+      border-radius: 0;
+      margin: 0 10px 0 10px;
+    }
+
+    //.groupItem:hover {
+    box-shadow: 0px 20px 75px -17px rgba(0, 0, 0, 0.64);
+    transform: scale(1.05);
+    transition-duration: 0.3s;
+    }
+
+    .groupItem:hover img {
+      opacity: .8;
+      transform: scale(1.05);
+      transition-duration: 0.3s;
+      box-shadow: 0px 20px 75px -15px rgba(0, 0, 0, 0.64);
+    }
+
+    .activecontent {
+      margin-top: 482px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- The active content is placed in a div to better align the content. Hereby showing a demo similar to the endresult -->
+  <div class="activecontent">
+
+    <!-- This is the first interactive row. Here you could place useful links to your company' main departments -->
+    <div class="customContent">
+      <p class="groupItems">
+        <a class="groupItem" href="#" target="_blank" title="Bygg og konstruksjoner">
+          <img alt="Bygg og konstruksjoner" src="https://i.ibb.co/4PSt6MR/back-construction.jpg" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Energisystemer">
+          <img alt="Energisystemer" src="https://i.ibb.co/M1Kt8qC/back-energy-text.jpg" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Samferdsel">
+          <img alt="Samferdsel" src="https://i.ibb.co/SN2S4DK/back-infrastructure-text.jpg" />
+        </a>
+      </p>
+    </div>
+
+    <!-- This is the second interactive row. Here you could place useful links to your ArcGIS online tools and content -->
+    <div class="customContent">
+      <p class="groupItems">
+        <a class="groupItem" href="#" target="_blank" title="Nytt Kart">
+          <img width="120px" alt="Nytt Kart" src="https://i.ibb.co/jHnDxrh/Map.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Nytt StoryMap">
+          <img width="120px" alt="Nytt StoryMap" src="https://i.ibb.co/HN77GDd/Storymap.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Nytt Dashbord">
+          <img width="120px" alt="Nytt Dashbord" src="https://i.ibb.co/8rMMgTY/Dashboard.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Ny Gruppe">
+          <img width="120px" alt="Ny Gruppe" src="https://i.ibb.co/vvrhSBw/Group.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Ny Survey123">
+          <img width="120px" alt="Ny Survey123" src="https://i.ibb.co/FJ55Zp2/Survey.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Ny Collector">
+          <img width="120px" alt="Ny Collector" src="https://i.ibb.co/bJ1fwb1/Collector.png" />
+        </a>
+      </p>
+    </div>
+
+    <!-- This is the third interactive row. Here you could place useful links for ArcGIS online and contact information -->
+    <div class="customContent">
+      <p class="groupItems">
+        <a class="groupItem" href="#" target="_blank" title="Informasjon">
+          <img alt="Informasjon" src="https://i.ibb.co/0hSYc8g/Informasjon.png" />
+        </a>
+        <a class="groupItem" href="#" target="_blank" title="Kontakt">
+          <img alt="Kontakt" src="https://i.ibb.co/x7VWqnM/Kontakt.png" />
+        </a>
+      </p>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
