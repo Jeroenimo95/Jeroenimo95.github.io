@@ -26,14 +26,14 @@
   <p align="center">
     an overview of possible changes to ArcGIS online Homepage customization!
     <br />
-    <a href="https://github.com/Jeroenimo95/ArcGIS-Homepage"><strong>Explore the docs »</strong></a>
+    <a href="https://jeroenimo95.github.io/ArcGIS%20Homepage/"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Jeroenimo95/ArcGIS-Homepage">View Demo</a>
+    <a href="https://jeroenimo95.github.io/ArcGIS%20Homepage/example/index.html">View Demo</a>
     ·
-    <a href="https://github.com/Jeroenimo95/ArcGIS-Homepage/issues">Report Bug</a>
+    <a href="https://jeroenimo95.github.io/ArcGIS%20Homepage/issues">Report Bug</a>
     ·
-    <a href="https://github.com/Jeroenimo95/ArcGIS-Homepage/issues">Request Feature</a>
+    <a href="https://jeroenimo95.github.io/ArcGIS%20Homepage/issues">Request Feature</a>
   </p>
 </p>
 
@@ -59,7 +59,7 @@
 ## About The Project
 
 [![Product Name Screen Shot][product-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
-[Live Demo](https://github.com/Jeroenimo95/Jeroenimo95.github.io/blob/master/ArcGIS%20Homepage/example/)
+[Live Demo](https://jeroenimo95.github.io/ArcGIS%20Homepage/example/index.html)
 
 
 ArcGIS online homepage is by default just about functional, but that's it. The homepage needs to be useful for yourself, your users and new visitors. If this is the case the default homepage could be a little confusing for some. This custom layout contributes to those how need more than the default homepage.
