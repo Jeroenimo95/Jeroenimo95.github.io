@@ -60,9 +60,8 @@ During the internship at Sweco Bergen, I was tasked to look into a simple way to
 
 _**I encourage everyone to read [this](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel) before making any changes to the homepage**_.
 
-[![Product Name Screen Shot][product-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
+[![ArcGIS homepage Screen Shot][product-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
 [Live Demo](https://jeroenimo95.github.io/ArcGIS%20Homepage/example/index.html)
-[Sweco ArcGIS online](http://swecono.maps.arcgis.com/home/index.html)
 
 ArcGIS online homepage is by default just about functional, but that's it. The homepage needs to be useful for yourself, your users and new visitors. If this is the case the default homepage could be a little confusing for some. This custom layout contributes to those how need more than the default homepage.
 
@@ -102,6 +101,8 @@ With atom, install the following packages by clicking on the links or directly i
 -   In Atom, open _Setting_ (Preferences on Mac)
 -   Go to _Install_ section
 -   Search for `package name`. Once found, click `Install` button to install package
+
+Packages
 -   [Beautify](https://atom.io/packages/atom-beautify)
 -   [Pigments](https://atom.io/packages/pigments)
 -   [Linter](https://atom.io/packages/linter)
@@ -130,7 +131,10 @@ const API_KEY = 'ENTER YOUR API';
 
 ## Homepage structure
 
-There are three important parts of the default ArcGIS online homepage
+There are three important parts of the default ArcGIS online homepage. As in the blogpost, these can also be found in the Sweco ArcGIS online page. 1 is the header, 2 is
+
+[![sections-screenshot][sections-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
+
 
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
 
@@ -173,9 +177,8 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square
-
 [contributors-shield]: https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square
-
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-
 [product-screenshot]: screenshot.png
+[default-screenshot]: home_default.jpg
+[sections-screenshot]: home_default_sections.jpg
