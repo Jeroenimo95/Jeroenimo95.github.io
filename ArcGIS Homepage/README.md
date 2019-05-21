@@ -45,7 +45,6 @@
     -   [Built With](#built-with)
 -   [Getting Started](#getting-started)
     -   [Prerequisites](#prerequisites)
-    -   [Installation](#installation)
 -   [Usage](#usage)
 -   [Contributing](#contributing)
 -   [License](#license)
@@ -109,6 +108,19 @@ Packages
 -   [Linter-csslint](https://atom.io/packages/linter-csslint)
 -   [Linter-htmllint](https://atom.io/packages/linter-htmlhint)
 
+Images
+-   Logo:
+  - _max-width 960px_
+  - _max-height 120px_
+-   Background:
+  - _max file size of 1MB_
+-   Buttons:
+  - _Company hyperlinks: 230px by 108px_
+  - _ArcGIS online hyperlinks: ratio of 4:3_
+  - _Botton hyperlinks: 150px by 43px_
+-   Filestorage:
+
+
 <!--
 ### Installation
 
@@ -129,11 +141,58 @@ const API_KEY = 'ENTER YOUR API';
 
 <!-- USAGE EXAMPLES -->
 
-## Homepage structure
+## Usage
 
-There are three important parts of the default ArcGIS online homepage. As in the blogpost, these can also be found in the Sweco ArcGIS online page. 1 is the header, 2 is
+There are three important parts of the default ArcGIS online homepage. As in the blogpost, these can also be found in the Sweco ArcGIS online page. 1 is the header, 2 is the content slider and 3 is the organizations description.
 
-[![sections-screenshot][sections-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
+![sections-screenshot][sections-screenshot]
+
+#### Changing the banner
+
+In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) file, the last two elements you will see in the _style_ section are the #topBanner and #resback. For both of these, you can see that we are simply applying a background image to the DIV and then placing the element. #topBanner is placing the header banner image and #resBack is placing the background image at a fixed position.  
+
+1. Make sure new logo image doesn't exceed 960px by 120px,
+2. place image url in the 'background' in the _#topBanner_ section
+```sh
+#topBanner {
+  background: url(http://);
+  border-radius: 0px 0px 10px 10px;
+  width: 960px;
+  height: 120px;
+  repeat: false;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  -moz-border-radius: 0 0 10px 10px;
+  -webkit-border-radius: 0 0 10px 10px;
+  -o-border-radius: 0 0 10px 10px;
+}
+#resetBack {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-image: url(http://); /* city background */
+  //background-image: url(http://); /* 3D bridge background */
+  //background-image: url(http://); /* highway bridge background */
+  //background-image: url(http://); /* map background */
+  background-size: cover;
+  z-index: 0-100;
+}
+```
+3. Login to ArcGIS online as administrator
+```sh
+npm install
+```
+4. Enter your API in `config.js`
+```JS
+const API_KEY = 'ENTER YOUR API';
+```
 
 
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
