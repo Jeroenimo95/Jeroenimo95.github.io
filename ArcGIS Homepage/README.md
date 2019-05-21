@@ -99,11 +99,9 @@ Choose one of the following code editor programs. Notepad++ can be downloaded fr
 -   [Atom](https://atom.io/)
 
 With atom, install the following packages by clicking on the links or directly in the Atom editor:
-
 -   In Atom, open _Setting_ (Preferences on Mac)
 -   Go to _Install_ section
 -   Search for `package name`. Once found, click `Install` button to install package
-
 -   [Beautify](https://atom.io/packages/atom-beautify)
 -   [Pigments](https://atom.io/packages/pigments)
 -   [Linter](https://atom.io/packages/linter)
