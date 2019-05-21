@@ -56,7 +56,7 @@
 
 ## About The Project
 
-During the internship at Sweco Bergen, I was tasked to look into a simple way to restyle the ArcGIS online homepage. I did some research into the possibilities and came across a very useful blogpost on [GeoNet](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel). The customized files that are given in this post are the basis on with I build the first version of the homepage. These files can be found in the [src](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) folder.
+During the internship at Sweco Bergen, I was tasked to look into a simple way to restyle the ArcGIS online homepage. I did some research into the possibilities and came across a very useful blogpost on [GeoNet](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel). The customized files that are given in this post are the basis on which I build the first version of the homepage. These files can be found in the [src](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) folder.
 
 _**I encourage everyone to read [this](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel) before making any changes to the homepage**_.
 
@@ -128,15 +128,11 @@ const API_KEY = 'ENTER YOUR API';
 ```
 -->
 
-### Introduction
-
-
-
 <!-- USAGE EXAMPLES -->
 
 ## Homepage structure
 
-
+There are three important parts of the default ArcGIS online homepage
 
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
 
@@ -184,4 +180,4 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
 
-[product-screenshot]: screenshot.jpg
+[product-screenshot]: screenshot.png
