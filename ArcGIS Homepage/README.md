@@ -55,10 +55,6 @@
 
 ## About The Project
 
-During the internship at Sweco Bergen, I was tasked to look into a simple way to restyle the ArcGIS online homepage. I did some research into the possibilities and came across a very useful blogpost on [GeoNet](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel). The customized files that are given in this post are the basis on which I build the first version of the homepage. These files can be found in the [src](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) folder.
-
-_**I encourage everyone to read [this](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel) before making any changes to the homepage**_.
-
 [![ArcGIS homepage Screen Shot][product-screenshot]](http://swecono.maps.arcgis.com/home/index.html)
 [Live Demo](https://jeroenimo95.github.io/ArcGIS%20Homepage/example/index.html)
 
@@ -72,8 +68,9 @@ Here's why:
 
 Of course, no one template will serve all homepages since your needs may be different. But this template would be a good starting point from which you can build your own beautiful homepage.
 
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+During the internship at Sweco Bergen, I was tasked to look into a simple way to restyle the ArcGIS online homepage. I did some research into the possibilities and came across a very useful blogpost on [GeoNet](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel). The customized files that are given in this post are the basis on which I build the first version of the homepage. The final customized files can be found in the [src](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) folder.
 
+A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
@@ -119,7 +116,14 @@ Images
   - _ArcGIS online hyperlinks: ratio of 4:3_
   - _Botton hyperlinks: 150px by 43px_
 -   Filestorage:
+  - _ArcGIS online 'homepage' contentfolder_
+  - _Github repository_
+  - _Internal SharePoint for backup_
 
+Role
+-   ArcGIS online _Administrator_ rights to be able to change homepage settings
+
+_**Before continuing please read [this](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel), because it explains a lot of the basics of the ArcGIS online homepage and its customization**_.
 
 <!--
 ### Installation
@@ -151,8 +155,12 @@ There are three important parts of the default ArcGIS online homepage. As in the
 
 In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) file, the last two elements you will see in the _style_ section are the #topBanner and #resback. For both of these, you can see that we are simply applying a background image to the DIV and then placing the element. #topBanner is placing the header banner image and #resBack is placing the background image at a fixed position.  
 
-1. Make sure new logo image doesn't exceed 960px by 120px,
-2. place image url in the 'background' in the _#topBanner_ section
+1. Make sure new logo image follows the give size restrictions and storage location
+2. Make new logo image public, and copy the url at the bottom of the overview page of the logo
+![sections-screenshot][share-screenshot]
+3. Go to _Organization_, to _Setting_, to _Home Page_ and click the <> icon in the toolbar of the banner section
+![banner-screenshot][banner-screenshot]
+4. place image url in the 'background' declaration in the _#topBanner_ section
 ```sh
 #topBanner {
   background: url(http://);
@@ -185,11 +193,7 @@ In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.gith
   z-index: 0-100;
 }
 ```
-3. Login to ArcGIS online as administrator
-```sh
-npm install
-```
-4. Enter your API in `config.js`
+5. Enter your API in `config.js`
 ```JS
 const API_KEY = 'ENTER YOUR API';
 ```
@@ -238,6 +242,8 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 [build-shield]: https://img.shields.io/badge/build-passing-brightgreen.svg?style=flat-square
 [contributors-shield]: https://img.shields.io/badge/contributors-1-orange.svg?style=flat-square
 [license-shield]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-[product-screenshot]: screenshot.png
-[default-screenshot]: home_default.jpg
-[sections-screenshot]: home_default_sections.jpg
+[product-screenshot]: images/screenshot.png
+[default-screenshot]: images/home_default.jpg
+[sections-screenshot]: images/home_default_sections.jpg
+[share-screenshot]: images/link_arcgis.jpg
+[banner-screenshot]: images/edit_banner.jpg
