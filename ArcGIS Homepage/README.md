@@ -161,7 +161,7 @@ In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.gith
 3. Go to _Organization_, to _Setting_, to _Home Page_ and click the <> icon in the toolbar of the banner section
 ![banner-screenshot][banner-screenshot]
 4. place image url in the 'background' declaration in the _#topBanner_ section
-```sh
+```css
 #topBanner {
   background: url(http://);
   border-radius: 0px 0px 10px 10px;
@@ -176,6 +176,15 @@ In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.gith
   -webkit-border-radius: 0 0 10px 10px;
   -o-border-radius: 0 0 10px 10px;
 }
+```
+
+#### Changing Background images
+
+For the background, there are already four different default Sweco background in the banner html file. To change the background, follow the following steps:
+
+1. add `//` to current `background-image`
+2. remove `//` from the desired `background-image`
+```css
 #resetBack {
   position: fixed;
   right: 0;
@@ -185,20 +194,14 @@ In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.gith
   width: auto;
   height: auto;
   z-index: -100;
-  background-image: url(http://); /* city background */
-  //background-image: url(http://); /* 3D bridge background */
+  //background-image: url(http://); /* city background */
+  background-image: url(http://); /* 3D bridge background */
   //background-image: url(http://); /* highway bridge background */
   //background-image: url(http://); /* map background */
   background-size: cover;
   z-index: 0-100;
 }
 ```
-5. Enter your API in `config.js`
-```JS
-const API_KEY = 'ENTER YOUR API';
-```
-
-
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
 
 <!-- CONTRIBUTING -->
