@@ -249,4 +249,4 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 [default-screenshot]: images/home_default.jpg
 [sections-screenshot]: images/home_default_sections.jpg
 [share-screenshot]: images/link_arcgis.jpg
-[banner-screenshot]: images/edit_banner.jpg
+[banner-screenshot]: images/edited_banner.jpg
