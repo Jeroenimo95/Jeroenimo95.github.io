@@ -46,6 +46,10 @@
 -   [Getting Started](#getting-started)
     -   [Prerequisites](#prerequisites)
 -   [Usage](#usage)
+    -   [Change the Logo](#change-the-banner)
+    -   [Change the Background](#change-the-banner)
+    -   [Change the banner](#change-the-banner)
+    -   [Change the banner](#change-the-banner)
 -   [Contributing](#contributing)
 -   [License](#license)
 -   [Contact](#contact)
@@ -105,17 +109,23 @@ Packages
 -   [Linter-csslint](https://atom.io/packages/linter-csslint)
 -   [Linter-htmllint](https://atom.io/packages/linter-htmlhint)
 
-Images
--   Logo:
+Logo:
   - _max-width 960px_
   - _max-height 120px_
--   Background:
+
+Background:
   - _max file size of 1MB_
--   Buttons:
+
+Buttons:
   - _Company hyperlinks: 230px by 108px_
+      - ![company-button][company-button]
   - _ArcGIS online hyperlinks: ratio of 4:3_
+      - ![arcgis-button][arcgis-button]
   - _Botton hyperlinks: 150px by 43px_
--   Filestorage:
+      - ![bottom-button][bottom-button]
+  - _max file size of 500kb_
+
+Filestorage:
   - _ArcGIS online 'homepage' contentfolder_
   - _Github repository_
   - _Internal SharePoint for backup_
@@ -151,7 +161,7 @@ There are three important parts of the default ArcGIS online homepage. As in the
 
 ![sections-screenshot][sections-screenshot]
 
-#### Changing the banner
+#### Change the banner
 
 In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) file, the last two elements you will see in the _style_ section are the #topBanner and #resback. For both of these, you can see that we are simply applying a background image to the DIV and then placing the element. #topBanner is placing the header banner image and #resBack is placing the background image at a fixed position.  
 
@@ -178,7 +188,7 @@ In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.gith
 }
 ```
 
-#### Changing Background images
+#### Change Background images
 
 For the background, there are already four different default Sweco background in the banner html file. To change the background, follow the following steps:
 
@@ -202,6 +212,15 @@ For the background, there are already four different default Sweco background in
   z-index: 0-100;
 }
 ```
+
+#### Change / Add Buttons
+
+In future updates, the purpose of the buttons might change. Keep the [size and proportion limitaztions](#prerequisites) of the button images in mind when making changes.
+
+1. add `//` to current `background-image`
+2. remove `//` from the desired `background-image`
+
+
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
 
 <!-- CONTRIBUTING -->
@@ -250,3 +269,6 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 [sections-screenshot]: images/home_default_sections.jpg
 [share-screenshot]: images/link_arcgis.jpg
 [banner-screenshot]: images/edited_banner.jpg
+[company-button]: src/images/icons/back-construction.jpg
+[arcgis-button]: src/images/icons/map.png
+[bottom-button]: src/images/icons/informasjon.png

@@ -14,32 +14,33 @@
 		color: #f1f1f1;
 	}
 
-	.customContent {
-		margin-bottom: 35px;
-		text-align: center;
+	.Divisions,
+	.ArcGIS,
+	.Info {
+		margin-bottom: 35px; /* Vertical margin between image rows */
+		text-align: center; /* Centers all the content to be displayed in the center of the screen */
 	}
 
 	.groupItem img {
-		//background-color: rgba(232, 232, 232, .9);
-		-webkit-border-radius: 5px 5px 5px 5px;
-		border-radius: 0;
-		margin: 0 10px 0 10px;
-	}
-
-	//.groupItem:hover {
-		box-shadow: 0px 20px 75px -17px rgba(0, 0, 0, 0.64);
-		transform: scale(1.05);
-		transition-duration: 0.3s;
+		//background-color: rgba(232, 232, 232, .9); /* if image has no background, the background needs to be defined. .9 makes the images just a bit transparant */
+		-webkit-border-radius: 0px 0px 0px 0px; /* apply border radius at your own personal preference, I like it at 0px */
+		border-radius: 0; /* apply border radius at your own personal preference, I like it at 0px */
+		margin: 0 10px 0 10px; /* Only left and right margins are defined. This allows for the same margin between every img */
 	}
 
 	.groupItem:hover img {
-		opacity: .8;
-		transform: scale(1.05);
-		transition-duration: 0.3s;
-		box-shadow: 0px 20px 75px -15px rgba(0, 0, 0, 0.64);
+		opacity: .8; /* The opasity when hovering over the img */
+		transform: scale(1.05); /* How big the img gets when hovering */
+		transition-duration: 0.3s; /* Duration of the hovering animation */
+		box-shadow: 0px 20px 75px -15px rgba(0, 0, 0, 0.64); /* Applies boxshadow to img when hovering */
 	}
 </style>
-<div class="customContent">
+
+<!-- 	This section holds the links to Sweco Norge AS specific content on sweco.no
+			<a></a>	places a link to the desired Sweco.no webpage
+			<img />	Displays the image desired for the link just defined
+-->
+<div class="Divisions">
 	<p class="groupItems">
 		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
 			<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
@@ -53,7 +54,12 @@
 	</p>
 </div>
 
-<div class="customContent">
+<!-- This section holds the links to ArcGIS specific content or apps
+			<a></a>	places a link to the desired ArcGIS content webpage
+			<img />	Displays the image desired for the link just defined
+			Target=_blank displays the link in a new tab
+-->
+<div class="ArcGIS">
 	<p class="groupItems">
 		<a class="groupItem" href="http://swecono.maps.arcgis.com/home/webmap/viewer.html?useExisting=1" target="_blank" title="Nytt Kart">
 			<img width="120px" alt="Nytt Kart" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/39f8068e4eb2401faae2265e361e83dd/data" />
@@ -76,7 +82,11 @@
 	</p>
 </div>
 
-<div class="customContent">
+<!-- This section holds the links to content or info about Sweco's ArcGIS environment or Sweco's general information
+			<a></a>	places a link to the desired webpage/arcgis content/whatever
+			<img />	Displays the image desired for the link just defined
+-->
+<div class="Info">
 	<p class="groupItems">
 		<a class="groupItem" href="https://storymaps-nextgen.arcgis.com/beta/stories/caade80feb804118a0240d3f190ee925" target="_blank" title="Informasjon">
 			<img alt="Informasjon" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/a2508e65a64748f5b9d9afa253935045/data" />

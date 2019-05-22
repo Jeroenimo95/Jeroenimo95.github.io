@@ -7,17 +7,19 @@
 
     .galleryNode .galleryLabelContainer {
       color: #fff !important;
+      /* title color of the gallery example */
     }
 
+    /* #featureMaps .prevButton and .nextButton display a arrow for navigating the gallery. */
     #featuredMaps .prevButton {
-      background: url('http://www.nats.aero/wp-content/themes/nats-sas/images/arrow-left.png');
+      background: url('http://swecono.maps.arcgis.com/sharing/rest/content/items/6e260c95eeb34943b5faad8761df07ed/data');
       width: 50px;
       height: 50px;
       left: -40px;
     }
 
     #featuredMaps .nextButton {
-      background: url('http://www.nats.aero/wp-content/themes/nats-sas/images/arrow-right.png');
+      background: url('http://swecono.maps.arcgis.com/sharing/rest/content/items/1c8f67fd6a094c2e868804109c82c525/data');
       width: 50px;
       height: 50px;
       right: -30px;
@@ -34,6 +36,12 @@
       opacity: 0.6;
     }
 
+    .prevButton:focus,
+    .nextButton:focus {
+    outline: 0;
+    box-shadow: none!important;
+    }
+
     .galleryBackground {
       height: 150px;
     }
@@ -45,6 +53,7 @@
       transition-duration: 0.3s;
     }
 
+    /* the gallery image styling */
     img.galleryThumbnail {
       border: 3px solid #3f3f42 !important;
       border-radius: 5px;
@@ -52,10 +61,14 @@
       padding: 0px !important;
     }
 
+    /* the gallery image hover styling */
     img.galleryThumbnail:hover {
-      box-shadow: 0px 25px 50px -17px rgba(0, 0, 0, 0.64);
       transform: scale(1.05);
+      /* size of the hovering animation */
       transition-duration: 0.3s;
+      /* Duration of the hovering animation */
+      box-shadow: 0px 25px 50px -17px rgba(0, 0, 0, 0.64);
+      /* Applies boxshadow to img when hovering */
     }
 
     #matrixLayout {
@@ -141,8 +154,7 @@
       width: auto;
       height: auto;
       z-index: -100;
-      background-image: url(http://swecono.maps.arcgis.com/sharing/rest/content/items/ee20f64b13f243ca816cc006ba9f6092/data);
-      /* city background */
+      background-image: url(http://swecono.maps.arcgis.com/sharing/rest/content/items/ee20f64b13f243ca816cc006ba9f6092/data);   /* city background */
       //background-image: url(http://swecono.maps.arcgis.com/sharing/rest/content/items/137b0c7d578c44f3b8feb19526695551/data); /* 3D bridge background */
       //background-image: url(http://swecono.maps.arcgis.com/sharing/rest/content/items/ecc7424570e54f209a857902c5f09190/data); /* highway bridge background */
       //background-image: url(http://swecono.maps.arcgis.com/sharing/rest/content/items/941312d950ac4d70806a6e77bb90cb09/data); /* map background */
@@ -151,7 +163,9 @@
     }
   </style>
 
+  <a href="https://www.sweco.no/" target="_blank">
   <div id='topBanner'></div>
+  </a>
   <div id='resetBack'></div>
-  
+
 </div>
