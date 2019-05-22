@@ -166,6 +166,7 @@ There are three important parts of the default ArcGIS online homepage. As in the
 In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) file, the last two elements you will see in the _style_ section are the #topBanner and #resback. For both of these, you can see that we are simply applying a background image to the DIV and then placing the element. #topBanner is placing the header banner image and #resBack is placing the background image at a fixed position.  
 
 1. Make sure new logo image follows the give size restrictions and storage location
+2. Upload the image to a folder and share it with the _Homepage_ Group
 2. Make new logo image public, and copy the url at the bottom of the overview page of the logo
 ![sections-screenshot][share-screenshot]
 3. Go to _Organization_, to _Setting_, to _Home Page_ and click the <> icon in the toolbar of the banner section
@@ -217,7 +218,7 @@ For the background, there are already four different default Sweco background in
 
 In future updates, the purpose of the buttons might change. Keep the [size and proportion limitaztions](#prerequisites) of the button images in mind when making changes.
 
-1. add `//` to current `background-image`
+1. Make sure new button image follows the size restrictions and storage location
 2. remove `//` from the desired `background-image`
 
 
