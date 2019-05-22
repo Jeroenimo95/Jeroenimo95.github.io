@@ -270,5 +270,5 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 [share-screenshot]: images/link_arcgis.jpg
 [banner-screenshot]: images/edited_banner.jpg
 [company-button]: src/images/icons/back-construction.jpg
-[arcgis-button]: src/images/icons/map.png
-[bottom-button]: src/images/icons/informasjon.png
+[arcgis-button]: src/images/icons/Map.png
+[bottom-button]: src/images/icons/Informasjon.png
