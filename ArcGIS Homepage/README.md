@@ -213,6 +213,7 @@ For the background, there are already four different default Sweco background in
   z-index: 0-100;
 }
 ```
+3. Save the changes made to the Background
 
 #### Change / Add Buttons
 
@@ -220,39 +221,42 @@ In future updates, the purpose of the buttons might change. Keep the [size and p
 
 1. Make sure new button image follows the size restrictions and storage location
 2. Work with the [html file](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src/OrganizationDescription.html) instead of changing values in the ArcGIS settings editor, which doesn't maintain the markup when saved
-3. Upload or update a image on ArcGIS online, share it with the _Homepage_ Group, copy share link and (re)place it in a (new) <img src="https://> link.
+3. Upload or update a image on ArcGIS online, share it with the _Homepage_ Group, copy share link and (re)place it in a (new) <img src="http://> link.
 ```html
 <!-- 	This section holds the links to Sweco Norge AS specific content on sweco.no
 			<a></a>	places a link to the desired Sweco.no webpage
 			<img />	Displays the image desired for the link just defined
 -->
 <div class="Divisions">
- <p class="groupItems">
-	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
-		<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
-	</a>
-	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/energisystemer/" target="_blank" title="Energisystemer">
-		<img alt="Energisystemer" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b09c04ec00fe44c987320c6edd335f26/data" />
-	</a>
-	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/samferdsel/" target="_blank" title="Samferdsel">
-		<img alt="Samferdsel" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/84fad926d7b74d3fa0a08af10ab8ac6d/data" />
-	</a>
- </p>
+	<p class="groupItems">
+		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
+			<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
+		</a>
+		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/energisystemer/" target="_blank" title="Energisystemer">
+			<img alt="Energisystemer" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b09c04ec00fe44c987320c6edd335f26/data" />
+		</a>
+		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/samferdsel/" target="_blank" title="Samferdsel">
+			<img alt="Samferdsel" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/84fad926d7b74d3fa0a08af10ab8ac6d/data" />
+		</a>
+	</p>
 </div>
 ```
 4. Make shore to update the hyperlink as well, if necessary
 5. Want to add a new button? Place the following code between the _div_ class **"Divisions"** and **"Info"**
 ```html
-<a class="groupItem" href="https://" target="_blank" title="">
-  <img alt="" src="http://" />
+<a class="groupItem" href="https://<!--place hyperlink-->" target="_blank" title="<!--place title-->">
+  <img alt="<!--place alt-->" src="http://<!--place ArcGIS URL-->" />
 </a>
 ```
 6. For an new ArcGIS online related button, place the following code in the _div_ class **"ArcGIS"**
 ```html
-<a class="groupItem" href="https://" target="_blank" title="">
-  <img width="120px" alt="" src="http://" />
+<a class="groupItem" href="https://<!--place hyperlink-->" target="_blank" title="<!--place title-->">
+  <img width="120px" alt="<!--place alt-->" src="http://<!--place ArcGIS URL-->" />
 </a>
 ```
+7. Copy the hole OrganizationDescription.html file, go to _Organization_, to _Setting_, to _General_ and click the <> icon in the toolbar of the Organization Description section
+7. Save the changes made to the Organization Description
+8. Save the edited html file and push it to GitHub
 
 _For more examples, please refer to the [Documentation](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)_
 
