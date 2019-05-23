@@ -292,10 +292,8 @@ Jeroen Stegeman - jeroen.stegeman@sweco.no
 ## Acknowledgements
 
 -   [Beautify your homepage](https://community.esri.com/blogs/baldy/2017/07/24/beautify-that-homepage-creating-a-unique-look-and-feel)
--   [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 -   [Choose an Open Source License](https://choosealicense.com)
 -   [GitHub Pages](https://pages.github.com)
--   [Font Awesome](https://fontawesome.com)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
