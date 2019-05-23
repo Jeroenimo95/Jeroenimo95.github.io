@@ -165,7 +165,7 @@ There are three important parts of the default ArcGIS online homepage. As in the
 In the code of the [Banner.html](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src) file, the last two elements you will see in the _style_ section are the #topBanner and #resback. For both of these, you can see that we are simply applying a background image to the DIV and then placing the element. #topBanner is placing the header banner image and #resBack is placing the background image at a fixed position.  
 
 1. Make sure new logo image follows the give size restrictions and storage location
-2. Upload the image to a folder and share it with the _Homepage_ Group
+2. Upload the image to a folder and share it with the [_Homepage_](http://swecono.maps.arcgis.com/home/group.html?id=c40bf2722c1549739f684c611d93a341#overview) Group
 2. Make new logo image public, and copy the url at the bottom of the overview page of the logo
 ![sections-screenshot][share-screenshot]
 3. Go to _Organization_, to _Setting_, to _Home Page_ and click the <> icon in the toolbar of the banner section
@@ -221,7 +221,7 @@ In future updates, the purpose of the buttons might change. Keep the [size and p
 
 1. Make sure new button image follows the size restrictions and storage location
 2. Work with the [html file](https://github.com/Jeroenimo95/Jeroenimo95.github.io/tree/master/ArcGIS%20Homepage/src/OrganizationDescription.html) instead of changing values in the ArcGIS settings editor, which doesn't maintain the markup when saved
-3. Upload or update a image on ArcGIS online, share it with the _Homepage_ Group, copy share link and (re)place it in a (new) <img src="http://> link.
+3. Upload or update a image on ArcGIS online, share it with the [_Homepage_](http://swecono.maps.arcgis.com/home/group.html?id=c40bf2722c1549739f684c611d93a341#overview) Group Group, copy share link and (re)place it in a (new) <img src="http://> link.
 ```html
 <!-- 	This section holds the links to Sweco Norge AS specific content on sweco.no
       <a href=></a>	places a link to the desired ArcGIS content webpage
