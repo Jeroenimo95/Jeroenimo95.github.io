@@ -224,8 +224,9 @@ In future updates, the purpose of the buttons might change. Keep the [size and p
 3. Upload or update a image on ArcGIS online, share it with the _Homepage_ Group, copy share link and (re)place it in a (new) <img src="http://> link.
 ```html
 <!-- 	This section holds the links to Sweco Norge AS specific content on sweco.no
-			<a></a>	places a link to the desired Sweco.no webpage
-			<img />	Displays the image desired for the link just defined
+      <a href=></a>	places a link to the desired ArcGIS content webpage
+      <img src=/>	Displays the image desired for the link just defined
+      Target=_blank displays the link in a new tab
 -->
 <div class="Divisions">
 	<p class="groupItems">
