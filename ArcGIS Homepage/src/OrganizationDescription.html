@@ -1,100 +1,10 @@
-<style>
-	@import url('https://fonts.googleapis.com/css?family=Open+Sans|PT+Sans');
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
 
-	body {
-		font-family: 'PT Sans', sans-serif;
-		font-family: 'Open Sans', sans-serif;
-	}
-
-	a,
-	a:link,
-	a:visited,
-	a:hover,
-	a:active {
-		color: #f1f1f1;
-	}
-
-	.Divisions,
-	.ArcGIS,
-	.Info {
-		margin-bottom: 35px; /* Vertical margin between image rows */
-		text-align: center; /* Centers all the content to be displayed in the center of the screen */
-	}
-
-	.groupItem img {
-		//background-color: rgba(232, 232, 232, .9); /* if image has no background, the background needs to be defined. .9 makes the images just a bit transparant */
-		-webkit-border-radius: 0px 0px 0px 0px; /* apply border radius at your own personal preference, I like it at 0px */
-		border-radius: 0; /* apply border radius at your own personal preference, I like it at 0px */
-		margin: 0 10px 0 10px; /* Only left and right margins are defined. This allows for the same margin between every img */
-	}
-
-	.groupItem:hover img {
-		opacity: .8; /* The opasity when hovering over the img */
-		transform: scale(1.05); /* How big the img gets when hovering */
-		transition-duration: 0.3s; /* Duration of the hovering animation */
-		box-shadow: 0px 20px 75px -15px rgba(0, 0, 0, 0.64); /* Applies boxshadow to img when hovering */
-	}
-</style>
-
-<!-- 	This section holds the links to Sweco Norge AS specific content on sweco.no
-			<a href=></a>	places a link to the desired Sweco.no webpage
-			<img src=/>	Displays the image desired for the link just defined
-			Target=_blank displays the link in a new tab
--->
-<div class="Divisions">
-	<p class="groupItems">
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
-			<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
-		</a>
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/energisystemer/" target="_blank" title="Energisystemer">
-			<img alt="Energisystemer" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b09c04ec00fe44c987320c6edd335f26/data" />
-		</a>
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/samferdsel/" target="_blank" title="Samferdsel">
-			<img alt="Samferdsel" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/84fad926d7b74d3fa0a08af10ab8ac6d/data" />
-		</a>
-	</p>
-</div>
-
-<!-- This section holds the links to ArcGIS specific content or apps
-			<a href=></a>	places a link to the desired ArcGIS content webpage
-			<img src=/>	Displays the image desired for the link just defined
-			Target=_blank displays the link in a new tab
--->
-<div class="ArcGIS">
-	<p class="groupItems">
-		<a class="groupItem" href="http://swecono.maps.arcgis.com/home/webmap/viewer.html?useExisting=1" target="_blank" title="Nytt Kart">
-			<img width="120px" alt="Nytt Kart" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/39f8068e4eb2401faae2265e361e83dd/data" />
-		</a>
-		<a class="groupItem" href="http://storymaps.arcgis.com/en/my-stories/" target="_blank" title="Nytt StoryMap">
-			<img width="120px" alt="Nytt StoryMap" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/67cbd5ec3c3d47aa9e0cc0a7a9d88848/data" />
-		</a>
-		<a class="groupItem" href="http://swecono.maps.arcgis.com/apps/opsdashboard/index.html#/new" target="_blank" title="Nytt Dashbord">
-			<img width="120px" alt="Nytt Dashbord" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/1ba623c7452c4cfb843da03eea8fa177/data" />
-		</a>
-		<a class="groupItem" href="http://swecono.maps.arcgis.com/home/group.html" target="_blank" title="Ny Gruppe">
-			<img width="120px" alt="Ny Gruppe" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/e117d0b4cebf4dd68ab6121364afd9d2/data" />
-		</a>
-		<a class="groupItem" href="http://survey123.arcgis.com/surveys" target="_blank" title="Ny Survey123">
-			<img width="120px" alt="Ny Survey123" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/81d2e491dc5a478a9b093061d35b5f22/data" />
-		</a>
-		<a class="groupItem" href="http://swecono.maps.arcgis.com/home/webmap/viewer.html?useExisting=1" target="_blank" title="Ny Collector">
-			<img width="120px" alt="Ny Collector" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b2e0035c77414cac886b542bedd36a9c/data" />
-		</a>
-	</p>
-</div>
-
-<!-- This section holds the links to content or info about Sweco's ArcGIS environment or Sweco's general information
-			<a href=></a>	places a link to the desired webpage/arcgis content/whatever
-			<img src=/>	Displays the image desired for the link just defined
-			Target=_blank displays the link in a new tab
--->
-<div class="Info">
-	<p class="groupItems">
-		<a class="groupItem" href="https://storymaps-nextgen.arcgis.com/beta/stories/caade80feb804118a0240d3f190ee925" target="_blank" title="Informasjon">
-			<img alt="Informasjon" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/a2508e65a64748f5b9d9afa253935045/data" />
-		</a>
-		<a class="groupItem" href="https://www.sweco.no/kontaktside/" target="_blank" title="Kontakt">
-			<img alt="Kontakt" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/d881d97385a1450fb05d7f68a0a58322/data" />
-		</a>
-	</p>
-</div>
+	</body>
+</html>
