@@ -227,17 +227,17 @@ In future updates, the purpose of the buttons might change. Keep the [size and p
 			<img />	Displays the image desired for the link just defined
 -->
 <div class="Divisions">
-	<p class="groupItems">
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
-			<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
-		</a>
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/energisystemer/" target="_blank" title="Energisystemer">
-			<img alt="Energisystemer" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b09c04ec00fe44c987320c6edd335f26/data" />
-		</a>
-		<a class="groupItem" href="https://www.sweco.no/vart-tilbud/samferdsel/" target="_blank" title="Samferdsel">
-			<img alt="Samferdsel" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/84fad926d7b74d3fa0a08af10ab8ac6d/data" />
-		</a>
-	</p>
+ <p class="groupItems">
+	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/bygg-og-konstruksjoner/" target="_blank" title="Bygg og konstruksjoner">
+		<img alt="Bygg og konstruksjoner" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/9ef05736e69a4df68b7c03ff87b5404e/data" />
+	</a>
+	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/energisystemer/" target="_blank" title="Energisystemer">
+		<img alt="Energisystemer" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/b09c04ec00fe44c987320c6edd335f26/data" />
+	</a>
+	<a class="groupItem" href="https://www.sweco.no/vart-tilbud/samferdsel/" target="_blank" title="Samferdsel">
+		<img alt="Samferdsel" src="http://swecono.maps.arcgis.com/sharing/rest/content/items/84fad926d7b74d3fa0a08af10ab8ac6d/data" />
+	</a>
+ </p>
 </div>
 ```
 4. Make shore to update the hyperlink as well, if necessary
