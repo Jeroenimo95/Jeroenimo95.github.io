@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Thumbnail Builder</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="./css/materialize.css">
+  <link rel="stylesheet" href="./css/materialize-colorpicker.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css" />
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="./index.html" class="brand-logo" align="center">ArcGIS Thumbnail Builder</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col m6 s12">
+        <div class="row">
+          <canvas id="edit-canvas"></canvas>
+        </div>
+
+        <div class="row" style="display: none;">
+          <div id="title-color" class="file-field">
+            <div class="btn color-icon"></div>
+            <div class="file-path-wrapper">
+              <input type="text" class="color-input" />
+            </div>
+          </div>
+          <div id="category-color" class="file-field">
+            <div class="btn color-icon"></div>
+            <div class="file-path-wrapper">
+              <input type="text" class="color-input" />
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <a id="download-image" download="thumbnail_generated.png" class="waves-effect waves-light btn blue accent-1"><i class="material-icons left">save</i>Nedlastning</a>
+        </div>
+      </div>
+
+      <div class="col m6 s12">
+
+        <div class="row">
+          <h2>Tittel</h2>
+          <div class="input-field col s12">
+            <input placeholder="Gjenstand Tittel" type="text" id="title" name="title" />
+            <label for="title">Gjenstand Tittel</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Sidebar</h2>
+          <div class="input-field col s12">
+            <select name="category" id="category">
+              <option value="Web Kart">Web Kart</option>
+              <option value="Story Map">Story Map</option>
+              <option value="Dashbord">Dashbord</option>
+              <option value="Web Scene">Web Scene</option>
+              <option value="Web App">Web App</option>
+              <option value="Collector App">Collector App</option>
+              <option value="Survey">Survey</option>
+              <option value="Feature Service">Feature Service</option>
+              <option value="Kart Service">Kart Service</option>
+              <option value="Basemap">Basemap</option>
+              <option value="Dokument">Dokument</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Bakgrunn Bilde</h2>
+          <input type="hidden" id="background-url" />
+          <div class="input-field col s12">
+            <div class="file-field input-field">
+              <div class="btn brand blue accent-1">
+                <span>Fil</span>
+                <input type="file" id="background">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Logo Bilde</h2>
+          <input type="hidden" id="logo-url" />
+          <div class="input-field col s12">
+            <div class="file-field input-field">
+              <div class="btn brand blue accent-1">
+                <span>Fil</span>
+                <input type="file" id="logo">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- /row -->
+    <br><br>
+    <div class="footer-copyright center">
+      <p>
+        <a href="https://www.sweco.no/">Sweco Norge AS</a> | <a href="http://swecono.maps.arcgis.com/home/index.html">ArcGIS Online</a>
+      </p>
+      <img src="./img/gallery/sweco_black.png" class="logo" />
+    </div>
+  </div> <!-- /container -->
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="./js/materialize.min.js"></script>
+  <script src="./js/materialize-colorpicker.min.js"></script>
+  <script src="./js/editCanvas.js"></script>
+</body>
+
+</html>
