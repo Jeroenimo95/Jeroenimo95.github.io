@@ -49,3 +49,20 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.kollom {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clearfix (clear floats) */
+.rij::after {
+  content: "";
+  clear: both;
+  display: table;
+}

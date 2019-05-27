@@ -7,22 +7,22 @@ var ctx = editCanvas.getContext('2d')
 // Title and Title Background
 var titleComponent = {
   properties: {
-    text: function () {
+    text: function() {
       return document.querySelector("#title").value
     },
-    bgColor: function () {
+    bgColor: function() {
       return $("#title-color").colorpicker('getValue')
     }
   },
-  draw: function () {
+  draw: function() {
     this._bg()
     this._text()
   },
-  _bg: function () {
+  _bg: function() {
     ctx.fillStyle = this.properties.bgColor()
     ctx.fillRect(0, 300, 500, 120)
   },
-  _text: function () {
+  _text: function() {
     editCanvas.letterSpacing = 2
     ctx.fillStyle = 'rgba(255, 255, 255, 1)'
     ctx.font = '35px sans-serif'
@@ -54,22 +54,22 @@ var titleComponent = {
 // Category and Category Background
 var categoryComponent = {
   properties: {
-    text: function () {
+    text: function() {
       return document.querySelector('#category').value
     },
-    bgColor: function () {
+    bgColor: function() {
       return $("#category-color").colorpicker('getValue')
     }
   },
-  draw: function () {
+  draw: function() {
     this._bg()
     this._text()
   },
-  _bg: function () {
+  _bg: function() {
     ctx.fillStyle = this.properties.bgColor()
     ctx.fillRect(500, 0, 150, 400)
   },
-  _text: function () {
+  _text: function() {
     ctx.save()
     ctx.translate(524, 200)
     ctx.rotate(-0.5 * Math.PI)
@@ -87,17 +87,17 @@ var backgroundComponent = {
   properties: {
     domId: "#background"
   },
-  draw: function () {
+  draw: function() {
     this._addImage()
   },
-  _addImage: function () {
+  _addImage: function() {
     var file = document.querySelector(this.properties.domId).files[0]
 
     var background = new Image()
     background.crossOrigin = "Anonymous"
     var reader = new FileReader()
 
-    background.onload = function () {
+    background.onload = function() {
       sourceHeight = background.height
       sourceWidth = background.width
       ctx.globalCompositeOperation = 'destination-over'
@@ -107,7 +107,7 @@ var backgroundComponent = {
     }
 
     if (file) {
-      reader.addEventListener("load", function () {
+      reader.addEventListener("load", function() {
         background.src = reader.result
       }, false)
 
@@ -126,17 +126,17 @@ var logoComponent = {
   properties: {
     domId: "#logo",
   },
-  draw: function () {
+  draw: function() {
     this._addImage()
   },
-  _addImage: function () {
+  _addImage: function() {
 
     var file = document.querySelector(this.properties.domId).files[0]
     var background = new Image()
     background.crossOrigin = "Anonymous"
     var reader = new FileReader()
 
-    background.onload = function () {
+    background.onload = function() {
       sourceHeight = background.height
       sourceWidth = background.width
       ctx.drawImage(background, 0, 0, sourceWidth, sourceHeight,
@@ -144,7 +144,7 @@ var logoComponent = {
     }
 
     if (file) {
-      reader.addEventListener("load", function () {
+      reader.addEventListener("load", function() {
         background.src = reader.result
       }, false)
 
@@ -156,10 +156,6 @@ var logoComponent = {
     }
   }
 }
-
-// Logo selector
-
-
 
 // main function to draw / redraw canvas
 function draw() {
@@ -173,7 +169,7 @@ function draw() {
   //Store to local storage.. next
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
   // Color Picker
   $('#title-color').colorpicker({
     component: '.btn'
@@ -204,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $("#title").val(getUrlParameter('title'))
   }
   if (getUrlParameter('category')) {
-    $("#category option").each(function (i, opt) {
+    $("#category option").each(function(i, opt) {
       if ($(opt).val().toLowerCase() == getUrlParameter('category').toLowerCase()) {
         $(opt).attr('selected', true)
       }
@@ -223,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   draw()
 
-  document.querySelector('#download-image').addEventListener('click', function () {
+  document.querySelector('#download-image').addEventListener('click', function() {
     //to png
     var img = document.createElement('img')
     img.src = editCanvas.toDataURL()
@@ -246,7 +242,7 @@ function getUrlParameter(name) {
 
 // Hidden function for users to generate a shareable URL
 var developer = {}
-developer.getShareUrl = function () {
+developer.getShareUrl = function() {
   var params = {}
   params.title = titleComponent.properties.text()
   params.titleColor = titleComponent.properties.bgColor().replace(/(rgba|\(|\))/g, '')
@@ -259,10 +255,10 @@ developer.getShareUrl = function () {
   function generateQueryParams(obj) {
     var str = ""
     for (var key in obj) {
-        if (str != "") {
-            str += "&"
-        }
-        str += key + "=" + encodeURIComponent(obj[key])
+      if (str != "") {
+        str += "&"
+      }
+      str += key + "=" + encodeURIComponent(obj[key])
     }
     return str
   }
