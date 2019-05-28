@@ -1,0 +1,76 @@
+canvas {
+  height: 233px;
+  width: 350px;
+  border: 1px solid black;
+  margin-top: 25px;
+}
+#editCanvas {
+  height: 233px;
+  weidth: 350px;
+  border: 1px solid black;
+}
+@font-face {
+  font-family: Sweco Sans;
+  src: url(https://github.com/sweco/sweco-digital-platforms/blob/master/public/fonts/SwecoSans-Regular.woff);
+}
+
+div {
+  font-family: Sweco Sans;
+}
+h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+h2:first-of-type {
+  margin-top: 25px;
+}
+.color-input {
+  width: 80% !important;
+}
+.nav-wrapper {
+  overflow: hidden;
+}
+#title-color .btn {
+  background-color: rgba(242,177,220,0.85);
+}
+#category-color .btn {
+  background-color: rgba(63, 63, 66, 0.85);
+}
+.brand-logo {
+  margin-left: 25px;
+}
+.row {
+  margin-bottom: 4px;
+}
+.input-field {
+  margin: 4px 0 4px 0;
+}
+.logo {
+  height: 25px;
+  vertical-align: middle;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.kollom {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+}
+
+/* Clearfix (clear floats) */
+.rij::after {
+  content: "";
+  clear: both;
+  display: table;
+}

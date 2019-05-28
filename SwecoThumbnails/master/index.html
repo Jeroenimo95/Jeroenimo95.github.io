@@ -1,162 +1,197 @@
 <!DOCTYPE html>
+<html lang="no">
+<html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <title>Sweco Thumbnail Builder</title>
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="./css/materialize.css">
-  <link rel="stylesheet" href="./css/materialize-colorpicker.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="./css/main.css" />
+
+  <style media="screen">
+    @font-face {
+      font-family: Sweco Sans;
+      src: url(https://github.com/sweco/sweco-digital-platforms/blob/master/public/fonts/SwecoSans-Regular.woff);
+    }
+    div {
+      font-family: Sweco Sans;
+      padding: 15px;
+    }
+    hr {
+      border: 0;
+      border-bottom: 1px dashed #ccc;
+      background: #999;
+    }
+    body {
+      background-image: url(https://i.ibb.co/mXPxrsd/back-blocks.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    .kollom {
+      float: left;
+      width: 30%;
+      padding: 5px;
+    }
+    .title {
+      float: left;
+      width: 30%;
+      padding: 0;
+      margin-bottom: -25px;
+    }
+    /* Clearfix (clear floats) */
+    .rij::after {
+      content: "";
+      clear: both;
+      display: table;
+
+    }
+    .thumbnail {
+      margin-right: 20px;
+    }
+    .thumbnail:hover img {
+      opacity: 1;
+      /* The opasity when hovering over the img */
+      transform: scale(1.01);
+      /* How big the img gets when hovering */
+      transition-duration: 0.3s;
+      /* Duration of the hovering animation */
+      box-shadow: 0px 20px 75px -15px rgba(0, 0, 0, 0.64);
+      /* Applies boxshadow to img when hovering */
+    }
+    a,
+    a:hover {
+      color: #8595af;
+    }
+  </style>
 
 </head>
 
 <body>
+  <div class="container" style="margin: 8px auto auto auto;">
+    <div class="container" style="background-color:#f2f2f2; width:80%;">
 
-  <nav>
-    <div class="nav-wrapper">
-      <a href="./index.html" class="brand-logo" style="text-align:center;">Sweco Thumbnail Builder</a>
+      <div>
+        <img src="https://www.sweco.no/globalassets/visual-guidelines/sweco_black.png" alt="Sweco Logo" style="height:40px; float:right; margin:10px;">
+      </div>
+      <div>
+        <H3 style="color:rgb(0,0,0)" class="text-left">Sweco Arcgis Online Thumbnail Builder</H3>
+      </div>
+      <hr>
+      <div class="">
+        <h4>About</h4>
+        <p>You come to the right place for designing the right thumbnails for the job. At Sweco we
+          differentiate between 3 different types of content on ArcGIS Online. That would be a WebApp
+          or Map, a Layer Item and a Service Item.
+        </p>
+        <p>But before we choose or template, please watch the next instruction on the creation of a thumbnail.
+        </p>
+      </div>
+      <hr>
+      <div class="rij">
+        <div class="kollom">
+          <a class="thumbnail" href="app_thumbnail.html" target="_self">
+            <img src="https://i.ibb.co/7g5CpC2/Cpark-Bata.png" alt="Snow" style="width:100%">
+          </a>
+        </div>
+        <div class="kollom">
+          <a class="thumbnail" href="layer_thumbnail.html" target="_self">
+            <img src="https://i.ibb.co/7t83RQn/Feature-Lag-All-Points.png" alt="Snow" style="width:100%">
+          </a>
+        </div>
+        <!--
+        <div class="kollom">
+          <a class="thumbnail" href="file_thumbnail.html" target="_self">
+            <img src="https://i.ibb.co/7g5CpC2/Cpark-Bata.png" alt="Snow" style="width:100%">
+          </a>
+        </div>
+        <div class="kollom">
+          <a class="thumbnail" href="service_thumbnail.html" target="_self">
+            <img src="https://i.ibb.co/7g5CpC2/Cpark-Bata.png" alt="Snow" style="width:100%">
+          </a>
+        </div>
+      -->
+      </div>
+
+      <div class="rij">
+        <div class="title">
+          <a href="app_thumbnail.html">
+          <h4>App Thumbail</h4></a>
+        </div>
+        <div class="title">
+          <a href="layer_thumbnail.html">
+          <h4>Layer Thumbail</h4></a>
+        </div>
+        <!--
+        <div class="title">
+          <h4>File Thumbail</h4>
+        </div>
+        <div class="title">
+          <h4>Service Thumbail</h4>
+        </div>
+      -->
+      </div>
+
+      <div class="rij">
+        <div class="kollom">
+          This includes the following:
+          <ul>
+            <li>Web Kart</li>
+            <li>Story Map</li>
+            <li>Dashbord</li>
+            <li>Web Scene</li>
+            <li>Web Map</li>
+            <li>Collector App</li>
+            <li>Survey123</li>
+          </ul>
+        </div>
+        <div class="kollom">
+          This includes the following:
+          <ul>
+            <li>Feature Lag</li>
+            <li>Bilde Lag</li>
+            <li>Høyde Lag</li>
+            <li>Vector tile Lag</li>
+            <li>Scene Lag</li>
+            <li>Route Lag</li>
+          </ul>
+        </div>
+        <!--
+        <div class="kollom">
+          This includes the following:
+          <ul>
+            <li>Document link</li>
+            <li>GeoJSON file</li>
+            <li>Image file</li>
+            <li>Shapefile</li>
+            <li>Layer file</li>
+            <li>zip file</li>
+          </ul>
+        </div>
+        <div class="kollom">
+          Only Administrators have to make service thumnails.
+          This includes the following:
+          <ul>
+            <li>Feature Service</li>
+            <li>Kart Service</li>
+            <li>Geocode service</li>
+            <li>Scene service</li>
+            <li>Stream service</li>
+            <li>Workflow Manager service</li>
+          </ul>
+        </div>
+      -->
+      </div>
+
     </div>
-  </nav>
+  </div>
 
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col m6 s12">
-        <div class="row">
-          <canvas id="edit-canvas"></canvas>
-        </div>
-
-        <div class="row" style="display: none;">
-          <div id="title-color" class="file-field">
-            <div class="btn color-icon"></div>
-            <div class="file-path-wrapper">
-              <input type="text" class="color-input" />
-            </div>
-          </div>
-          <div id="category-color" class="file-field">
-            <div class="btn color-icon"></div>
-            <div class="file-path-wrapper">
-              <input type="text" class="color-input" />
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-          <a id="download-image" download="thumbnail_generated.png" class="waves-effect waves-light btn blue accent-1"><i class="material-icons left">save</i>Nedlastning</a>
-        </div>
-      </div>
-
-      <div class="col m6 s12">
-
-        <div class="row">
-          <h2>Tittel</h2>
-          <div class="input-field col s12">
-            <input placeholder="Gjenstand Tittel" type="text" id="title" name="title" />
-            <label for="title">Gjenstand Tittel</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <h2>Sidebar</h2>
-          <div class="input-field col s12">
-            <select name="category" id="category">
-              <option value="Web Kart">Web Kart</option>
-              <option value="Story Map">Story Map</option>
-              <option value="Dashbord">Dashbord</option>
-              <option value="Web Scene">Web Scene</option>
-              <option value="Web App">Web App</option>
-              <option value="Collector App">Collector App</option>
-              <option value="Survey">Survey</option>
-              <option value="Feature Service">Feature Service</option>
-              <option value="Kart Service">Kart Service</option>
-              <option value="Basemap">Basemap</option>
-              <option value="Dokument">Dokument</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row">
-          <h2>Bakgrunn Bilde</h2>
-          <input type="hidden" id="background-url" />
-          <div class="input-field col s12">
-            <div class="file-field input-field">
-              <div class="btn brand blue accent-1">
-                <span>Fil</span>
-                <input type="file" id="background">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <h2>Logo Bilde</h2>
-          <input type="hidden" id="logo-url" />
-          <div class="input-field col s12">
-            <div class="file-field input-field">
-              <div class="btn brand blue accent-1">
-                <span>Fil</span>
-                <input type="file" id="logo">
-              </div>
-              <div class="file-path-wrapper">
-                <input class="file-path validate" type="text">
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div> <!-- /row -->
-    <br><br>
-    <h3>Bruksanvisning</h3>
-    <hr>
-    <h5>Bakgrunn Bilde</h5>
-    <p>For bakgrunn bilde, bruk et passende bilde, lage et skjermbilde av webapp / story map / map / etc og last det fra filbehandling etter å ha klikket på "Fyll".</p>
-    <br>
-    <h5>Logo Bilde</h5>
-    <p>For Sweco-logoen, bruk en av linkene nedenfor. Kopier URL-en og lim den inn som et filnavn når filbehandleren åpnes:</p>
-    <dl>
-      <dt>Black Logo</dt>
-      <dd>https://www.sweco.no/globalassets/visual-guidelines/sweco_black.png</dd>
-      <dt>White Logo</dt>
-      <dd>https://www.sweco.no/globalassets/visual-guidelines/sweco_white.png</dd>
-    </dl>
-    <br>
-    <h5>Eksempler</h5>
-    <div class="rij">
-      <div class="kollom">
-        <img src="https://i.ibb.co/7g5CpC2/Cpark-Bata.png" alt="Snow" style="width:100%">
-      </div>
-      <div class="kollom">
-        <img src="https://i.ibb.co/dt0JRSz/Web-App-field-demo.png" alt="Forest" style="width:100%">
-      </div>
-      <div class="kollom">
-        <img src="https://i.ibb.co/PQsghZ6/Story-Map-field-demo-norway.png" alt="Mountains" style="width:100%">
-      </div>
-    </div>
-    <hr>
-    <br><br>
-    <div class="footer-copyright center">
-      <p>
-        <a href="https://www.sweco.no/">Sweco Norge AS</a> | <a href="http://swecono.maps.arcgis.com/home/index.html">ArcGIS Online</a>
-      </p>
-      <img src="https://www.sweco.no/globalassets/visual-guidelines/sweco_black.png" class="logo" />
-      <br><br>
-    </div>
-  </div> <!-- /container -->
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="./js/materialize.min.js"></script>
-  <script src="./js/materialize-colorpicker.min.js"></script>
-  <script src="./js/editCanvas.js"></script>
 </body>
 
 </html>

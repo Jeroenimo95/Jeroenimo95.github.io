@@ -9,6 +9,14 @@ canvas {
   weidth: 350px;
   border: 1px solid black;
 }
+@font-face {
+  font-family: Sweco Sans;
+  src: url(https://github.com/sweco/sweco-digital-platforms/blob/master/public/fonts/SwecoSans-Regular.woff);
+}
+
+div {
+  font-family: Sweco Sans;
+}
 h2 {
   font-size: 18px;
   margin: 10px 0;
@@ -30,6 +38,7 @@ h2:first-of-type {
 }
 .brand-logo {
   margin-left: 25px;
+
 }
 .row {
   margin-bottom: 4px;
@@ -40,6 +49,7 @@ h2:first-of-type {
 .logo {
   height: 25px;
   vertical-align: middle;
+
 }
 body {
   display: flex;

@@ -121,7 +121,6 @@ var backgroundComponent = {
 }
 
 // Logo
-
 var logoComponent = {
   properties: {
     domId: "#logo",

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Sweco Thumbnail Builder</title>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="./css/materialize.css">
+  <link rel="stylesheet" href="./css/materialize-colorpicker.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main_service.css" />
+
+</head>
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="index.html" target="_self"><i class="material-icons">home</i>Home</a></li>
+        <li><a href="app_thumbnail.html" target="_self">App Thumbnail</a></li>
+        <li><a href="layer_thumbnail.html" target="_self">Layer Thumbnail</a></li>
+        <!--<li><a href="file_thumbnail.html" target="_self">File Thumbnail</a></li>-->
+      </ul>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <!--<li><a href="service_thumbnail.html" target="_self">Service Thumbnail</a></li>-->
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col m6 s12">
+        <div class="row">
+          <canvas id="edit-canvas"></canvas>
+        </div>
+
+        <div class="row" style="display: none;">
+          <div id="title-color" class="file-field">
+            <div class="btn color-icon"></div>
+            <div class="file-path-wrapper">
+              <input type="text" class="color-input" />
+            </div>
+          </div>
+          <div id="category-color" class="file-field">
+            <div class="btn color-icon"></div>
+            <div class="file-path-wrapper">
+              <input type="text" class="color-input" />
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <a id="download-image" download="thumbnail_generated.png" class="waves-effect waves-light btn pink lighten-4"><i class="material-icons left">save</i>Nedlastning</a>
+        </div>
+      </div>
+
+      <div class="col m6 s12">
+
+        <div class="row">
+          <h2>Tittel</h2>
+          <div class="input-field col s12">
+            <input placeholder="Gjenstand Tittel" type="text" id="title" name="title" />
+            <label for="title">Gjenstand Tittel</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Sidebar</h2>
+          <div class="input-field col s12">
+            <select name="category" id="category">
+              <option value="Feature Service">Feature Service</option>
+              <option value="Kart Service">Kart Service</option>
+              <option value="Basemap">Basemap</option>
+              <option value="Bilde Lag">Bilde Lag</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Bakgrunn Bilde</h2>
+          <input type="hidden" id="background-url" />
+          <div class="input-field col s12">
+            <div class="file-field input-field">
+              <div class="btn brand  pink lighten-4">
+                <span>Fil</span>
+                <input type="file" id="background">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <h2>Logo Bilde</h2>
+          <input type="hidden" id="logo-url" />
+          <div class="input-field col s12">
+            <div class="file-field input-field">
+              <div class="btn brand  pink lighten-4">
+                <span>Fil</span>
+                <input type="file" id="logo">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div> <!-- /row -->
+    <br><br>
+    <h3>Bruksanvisning</h3>
+    <hr>
+    <h5>Bakgrunn Bilde</h5>
+    <p>For bakgrunn bilde, bruk et passende bilde, lage et skjermbilde av webapp / story map / map / etc og last det fra filbehandling etter å ha klikket på "Fil".</p>
+    <br>
+    <h5>Logo Bilde</h5>
+    <p>For Sweco-logoen, bruk en av linkene nedenfor. Kopier URL-en og lim den inn som et filnavn når filbehandleren åpnes:</p>
+    <dl>
+      <dt>Black Logo</dt>
+      <dd>https://www.sweco.no/globalassets/visual-guidelines/sweco_black.png</dd>
+      <dt>White Logo</dt>
+      <dd>https://www.sweco.no/globalassets/visual-guidelines/sweco_white.png</dd>
+    </dl>
+    <br>
+    <h5>Eksempler</h5>
+    <div class="rij">
+      <div class="kollom">
+        <img src="https://i.ibb.co/7g5CpC2/Cpark-Bata.png" alt="Snow" style="width:100%">
+      </div>
+      <div class="kollom">
+        <img src="https://i.ibb.co/dt0JRSz/Web-App-field-demo.png" alt="Forest" style="width:100%">
+      </div>
+      <div class="kollom">
+        <img src="https://i.ibb.co/PQsghZ6/Story-Map-field-demo-norway.png" alt="Mountains" style="width:100%">
+      </div>
+    </div>
+    <hr>
+    <br><br>
+    <div class="footer-copyright center">
+      <p>
+        <a href="https://www.sweco.no/">Sweco Norge AS</a> | <a href="http://swecono.maps.arcgis.com/home/index.html">ArcGIS Online</a>
+      </p>
+      <img src="https://www.sweco.no/globalassets/visual-guidelines/sweco_black.png" class="logo" />
+      <br><br>
+    </div>
+  </div> <!-- /container -->
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="./js/materialize.min.js"></script>
+  <script src="./js/materialize-colorpicker.min.js"></script>
+  <script src="./js/editCanvas.js"></script>
+</body>
+
+</html>
