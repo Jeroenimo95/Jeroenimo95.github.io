@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title> Design </title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/grayscale.min.css" rel="stylesheet">
+  <style>
+    div,
+      {
+      font-family: Calibri;
+    }
+
+
+    .btn {
+      background-color: lightgray;
+      font-family: calibri;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background-color: #008B8B;
+    }
+
+    ul {
+      list-style: none;
+      /* Remove default bullets */
+    }
+
+    ul li::before {
+      content: "\2022";
+      /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: white;
+      /* Change the color */
+      font-weight: bold;
+      /* If you want it to be bold */
+      display: inline-block;
+      /* Needed to add space between the bullet and the text */
+      width: 1em;
+      /* Also needed for space (tweak if needed) */
+      margin-left: -1em;
+      /* Also needed for space (tweak if needed) */
+    }
+
+    ul3 {
+      list-style: none;
+      /* Remove default bullets */
+    }
+
+    ul3 li::before {
+      content: "\2022";
+      /* Add content: \2022 is the CSS Code/unicode for a bullet */
+      color: white;
+      /* Change the color */
+      font-weight: bold;
+      /* If you want it to be bold */
+      display: inline-block;
+      /* Needed to add space between the bullet and the text */
+      width: 1em;
+      /* Also needed for space (tweak if needed) */
+      margin-left: -1em;
+      /* Also needed for space (tweak if needed) */
+    }
+
+    .listapps {
+      text-align: left;
+      margin-left: 50%
+    }
+
+    header {
+      height: 350px;
+      background-image: url(img/bg-signup.jpg);
+      background-position: center;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      height: 50px;
+      width: 50px;
+      outline: black;
+      background-size: 100%, 100%;
+      background-image: none;
+    }
+
+    .carousel-control-next-icon:after {
+      content: '>';
+      font-size: 40px;
+      color: #008B8B;
+    }
+
+    .carousel-control-prev-icon:after {
+      content: '<';
+      font-size: 40px;
+      color: #008B8B;
+    }
+
+    a {
+      color: #008B8B;
+      font-style: italic;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .img-comp-container {
+      position: relative;
+      height: 600px;
+      /*should be the same height as the images*/
+    }
+
+    .img-comp-img {
+      position: absolute;
+      width: auto;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .img-comp-img img {
+      display: block;
+      vertical-align: middle;
+    }
+
+    .img-comp-slider {
+      position: absolute;
+      z-index: 9;
+      cursor: ew-resize;
+      /*set the appearance of the slider:*/
+      width: 40px;
+      height: 40px;
+      background-color: #008B8B;
+      opacity: 0.8;
+      border-radius: 50%;
+    }
+  </style>
+
+  <script>
+    function initComparisons() {
+      var x, i;
+      /*find all elements with an "overlay" class:*/
+      x = document.getElementsByClassName("img-comp-overlay");
+      for (i = 0; i < x.length; i++) {
+        /*once for each "overlay" element:
+        pass the "overlay" element as a parameter when executing the compareImages function:*/
+        compareImages(x[i]);
+      }
+
+      function compareImages(img) {
+        var slider, img, clicked = 0,
+          w, h;
+        /*get the width and height of the img element*/
+        w = img.offsetWidth;
+        h = img.offsetHeight;
+        /*set the width of the img element to 50%:*/
+        img.style.width = (w / 2) + "px";
+        /*create slider:*/
+        slider = document.createElement("DIV");
+        slider.setAttribute("class", "img-comp-slider");
+        /*insert slider*/
+        img.parentElement.insertBefore(slider, img);
+        /*position the slider in the middle:*/
+        slider.style.top = (h / 2) - (slider.offsetHeight / 2) + "px";
+        slider.style.left = (w / 2) - (slider.offsetWidth / 2) + "px";
+        /*execute a function when the mouse button is pressed:*/
+        slider.addEventListener("mousedown", slideReady);
+        /*and another function when the mouse button is released:*/
+        window.addEventListener("mouseup", slideFinish);
+        /*or touched (for touch screens:*/
+        slider.addEventListener("touchstart", slideReady);
+        /*and released (for touch screens:*/
+        window.addEventListener("touchstop", slideFinish);
+
+        function slideReady(e) {
+          /*prevent any other actions that may occur when moving over the image:*/
+          e.preventDefault();
+          /*the slider is now clicked and ready to move:*/
+          clicked = 1;
+          /*execute a function when the slider is moved:*/
+          window.addEventListener("mousemove", slideMove);
+          window.addEventListener("touchmove", slideMove);
+        }
+
+        function slideFinish() {
+          /*the slider is no longer clicked:*/
+          clicked = 0;
+        }
+
+        function slideMove(e) {
+          var pos;
+          /*if the slider is no longer clicked, exit this function:*/
+          if (clicked == 0) return false;
+          /*get the cursor's x position:*/
+          pos = getCursorPos(e)
+          /*prevent the slider from being positioned outside the image:*/
+          if (pos < 0) pos = 0;
+          if (pos > w) pos = w;
+          /*execute a function that will resize the overlay image according to the cursor:*/
+          slide(pos);
+        }
+
+        function getCursorPos(e) {
+          var a, x = 0;
+          e = e || window.event;
+          /*get the x positions of the image:*/
+          a = img.getBoundingClientRect();
+          /*calculate the cursor's x coordinate, relative to the image:*/
+          x = e.pageX - a.left;
+          /*consider any page scrolling:*/
+          x = x - window.pageXOffset;
+          return x;
+        }
+
+        function slide(x) {
+          /*resize the image:*/
+          img.style.width = x + "px";
+          /*position the slider:*/
+          slider.style.left = img.offsetWidth - (slider.offsetWidth / 2) + "px";
+        }
+      }
+    }
+  </script>
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">Portfolio Esmee & Jeroen</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul4 class="navbar-nav ml-auto">
+               <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="index.html">Home</a>      
+          </li>
+            <li class="nav-item">
+               <a class="nav-link js-scroll-trigger" href="Design.html">Design</a>  
+          </li>
+
+            <li class="nav-item">
+               <a class="nav-link js-scroll-trigger" href="Tools.html">Tools & Apps</a>     
+          </li>
+
+            <li class="nav-item">
+               <a class="nav-link js-scroll-trigger" href="index.html/#contact">Contact</a>
+    
+          </li>
+        </ul4>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <div class="container d-flex h-100 align-items-center">
+      <div class="mx-auto text-center">
+        <h2 style='font-family: Encode Sans Expanded; font-size: 90px;'><b>DESIGN</b></h2>
+
+
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section bg-light">
+    <div class="container">
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Design: communicate in new ways</h4>
+            <p class="text-black-50 text-justify mb-0"> The last decades, our way of communcation changed drastically. From letters to emails, from morse code to text, and even more extreme examples can be thought of. With this change, our mind has
+              also changed. Where our ancestors painted the walls of there caves, we now paint our screens with illustrations and other digital media (not literally ofcourse). The study Geo Media & Design prepares us for this new way of communicating
+              by teaching us design principles which we apply in the design of infographics, posters, animations and user-friendly interfaces. Webdesign and cartography are no strangers to us either. And many more things are possible...
+            </p>
+
+          </div>
+
+        </div>
+        <div class="col-xl-8 col-lg-7">
+          <img src="img/Design.jpg" style="margin-left: 10%;">
+        </div>
+      </div>
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <a href='https://www.youtube.com/watch?v=BSHH9FTuqBk&t=1s' target="_blank"><img src="img/Animation.JPG" style="margin-right: : 10%; width: 95%"></a>
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+
+          <div class="featured-text text-center text-lg-left">
+            <h4>Animation Geo Media & Design</h4>
+            <p class="text-black-50 text-justify mb-0">By clicking on the link on the homepage, you are directed to the animation we made about our study Geo Media & Design. The study is hard to explain, even more so in English. We are taught to keep
+              looking for more efficient ways to communicate, so why not make an animation? All the illustrations and effects where made by us. A simple, yet fun way to inform people about a subject. (Click on the image to see it again! We know you
+              want to ;) )
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Sweco Norge AS ArcGIS Online Hompage</h4>
+            <p class="text-black-50 text-justify mb-0"> Sometimes, design doesn't need anything more than the simple reason: it just looks better this way. This was the case concerning the home page of the Sweco Norge ArcGIS Online website. The page
+              looked a little dull and not that inviting either... But now, <a href="https://swecono.maps.arcgis.com/home/index.html" target='_blank'>the home page </a> got a make over using basic HTML
+              and CSS knowledge. Swipe the blue sphere in the picture to the right to see before and after. Quite the difference, right?
+            </p>
+
+          </div>
+
+        </div>
+        <div class="col-xl-8 col-lg-7">
+          <div class="img-comp-container" style="margin-left: 10%; width: 100%;">
+            <div class="img-comp-img">
+              <img src="img/AGOL.jpg" width="600" height="500">
+            </div>
+            <div class="img-comp-img img-comp-overlay">
+              <img src="img/old homepage.jpg" width="600" height="500">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <img src="img/UID.JPG" style="margin-right: 10%; width: 95%">
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+
+          <div class="featured-text text-center text-lg-left">
+            <h4>User Interface Project Dashboard</h4>
+            <p class="text-black-50 text-justify mb-0">The rise of Big Data is ever going on, which is not necessarily a bad thing. The only downside of this much data is that it gets crowded and hard to understand. That's where user interface design
+              comes in. By following a set of mantras (not rules, they are free to be interpreted any way the designer likes) a user-friendly interface can be designed. We did this for a project concerning a dahsboard. By stepping into the users
+              shoes and listening to their wants and needs, a user-friendly interface is born! To the left is a workflow we made using wireframes. These are the bare bones of the dashboard, the markup is yet to be made.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+
+        <div class="col-xl-4 col-lg-5">
+          <div class="featured-text text-center text-lg-left">
+            <h4>Organizational Theme ArcGIS Online</h4>
+            <p class="text-black-50 text-justify mb-0"> As stated before, data is playing a bigger part in our lives everyday. Consequently, the amount of applications used to display this data is also growing with a rapid speed. The need for
+              templates within a company is great and we came up with a temporary solution. As many applications to display data are made with the help of ArcGIS Online, we thought it would be best that these applications looked the same. Meaning,
+              the same color scheme, logo, font etc. This is possible in ArcGIS Online by creating a custom font and setting this as the organizational theme, so everyone can use it! This theme is made based on the visual guidelines of Sweco Norge
+              AS. The next step? A fully customized template using the Sweco font and other tricks that promote branding in all the best ways!
+            </p>
+
+          </div>
+
+        </div>
+        <div class="col-xl-8 col-lg-7">
+          <img src="img/Theme.png" style="margin-left: 10%; width: 90%;">
+        </div>
+      </div>
+
+      <!-- Featured Project Row -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+        <div class="col-xl-8 col-lg-7">
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="img/ArcGIS%20Collector.jpg" alt="First slide" style="padding: 0px 200px 0px 200px;">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="img/ArcGIS%20Survey123.jpg" alt="Second slide" style="padding: 0px 200px 0px 200px;">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="img/Workforce%20App.jpg" alt="Third slide" style="padding: 0px 200px 0px 200px;">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-5">
+
+          <div class="featured-text text-center text-lg-left">
+            <h4>ESRI Field Operations</h4>
+            <p class="text-black-50 text-justify mb-0">At a company like Sweco Norge AS, collecting data is an important part of the work. It is important that this data is collected in a structurized way, so it is easier to work with. We were asked
+              to take a look at two applications provided by ESRI: the Collector App and Survey 123. During this quest, we came across something that makes these apps even more powerful: Field Operations by ESRI. This is an entire workflow consisting
+              of ESRI ArcGIS Apps that work together to make collecting data a lot easier! To present this, we made a Power Point Presentation as well as several infographics. The infographics can be seen on the right. For the Power Point
+              Presentation, <a href='https://haskennisplein-my.sharepoint.com/:p:/g/personal/970124543_has_nl/EWhg5kPAQTtDoLPFn9_FCY0BuIpHNsONLl4fobT90FhYyg?e=sejVR9' target="_blank"> click here!</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/grayscale.min.js"></script>
+  <script>
+    /*Execute a function that will execute an image compare function for each element with the img-comp-overlay class:*/
+    initComparisons();
+  </script>
+
+</body>
+
+</html>
