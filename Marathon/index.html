@@ -5,7 +5,7 @@
     <title>IJsselsteinloop</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-	<script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
+    <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
 
     <link
       href="
@@ -158,14 +158,33 @@ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.
     <div id="map"></div>
 
     <script>
-      var map = L.map("map").setView([52.017676, 5.0411685], 13);
+      var map = L.map("map", {
+        center: [52.017676, 5.0411685],
+        zoom: 13,
+        zoomControl: false,
+      });
 
-    //   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    //     attribution: "© OpenStreetMap contributors",
-    //   }).addTo(map);
+      L.control
+        .zoom({
+          position: "bottomright",
+        })
+        .addTo(map);
 
-	  // add Stamen Watercolor to map.
-		L.tileLayer.provider('OpenStreetMap.HOT').addTo(map);
+      var lc = L.control
+        .locate({
+          strings: {
+            title: "Waar sta ik langs de route? Waar loop ik op dit moment?",
+          },
+          position: "bottomright",
+        })
+        .addTo(map);
+
+      //   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      //     attribution: "© OpenStreetMap contributors",
+      //   }).addTo(map);
+
+      // add Stamen Watercolor to map.
+      L.tileLayer.provider("OpenStreetMap.HOT").addTo(map);
 
       var currentLayer;
 
@@ -1372,14 +1391,6 @@ https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.79.0/dist/L.Control.Locate.
 
       // // Call showUserLocation when the map is initialized
       // showUserLocation();
-
-      var lc = L.control
-        .locate({
-          strings: {
-            title: "Show me where I am, yo!",
-          },
-        })
-        .addTo(map);
 
       function changeRoute(routeKey) {
         if (currentLayer) {
